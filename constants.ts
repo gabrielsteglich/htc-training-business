@@ -256,6 +256,7 @@ export const CONTENT = {
       excellence: 'Excelência em Cada Detalhe',
       programsTitle: 'Programas de Treinamento',
       trust: 'Padrões de Conformidade Confiáveis',
+      certificationsLabel: 'Certificações',
       ctaTitle: 'Sua operação precisa de treinamento padronizado?',
       ctaDesc: 'Desenvolvemos cronogramas que não impactam sua escala. Fale com nossos especialistas sobre contratos corporativos.',
       stats: [
@@ -1036,6 +1037,7 @@ export const CONTENT = {
       excellence: 'Excellence in Every Detail',
       programsTitle: 'Training Programs',
       trust: 'Trusted Compliance Standards',
+      certificationsLabel: 'Certifications',
       ctaTitle: 'Does your operation need standardized training?',
       ctaDesc: 'We develop schedules that do not impact your roster. Talk to our experts about corporate contracts.',
       stats: [

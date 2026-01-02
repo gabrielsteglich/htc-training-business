@@ -7,10 +7,11 @@ import { IntroAnimation } from '../components/IntroAnimation';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { getAssetPath } from '../utils/assetPath';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 
 const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1478860409698-8707f313ee8b?q=80&w=2070&auto=format&fit=crop", // Slide 1: Dark Blue Cockpit
-  "https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=2070&auto=format&fit=crop", // Slide 2: Pilots/Human Factors
+  getAssetPath("/images/crm_slider_bg.jpg"), // Slide 2: CRM/Human Factors - Offshore Helicopter
   "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=2070&auto=format&fit=crop",  // Slide 3: Tarmac/Ground Ops
   getAssetPath("/images/dgr_slider_bg.png")   // Slide 4: DGR / Cargo Logistics
 ];
@@ -283,7 +284,13 @@ export const Home: React.FC = () => {
                   visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } }
                 }}
               >
-                <p className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">{stat.value}</p>
+                <div className="mb-2">
+                  <AnimatedCounter
+                    value={stat.value}
+                    duration={2500}
+                    className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 group-hover:scale-110 transition-transform duration-300 inline-block"
+                  />
+                </div>
                 <p className="text-sm md:text-base text-aviation-red font-bold uppercase tracking-widest">{stat.label}</p>
               </motion.div>
             ))}
@@ -383,72 +390,100 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Trust/Certifications Strip - Clean & Modern */}
-      <section className="py-20 bg-white border-t border-slate-100">
+      <section className="py-12 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           <motion.div
-            className="mb-12"
+            className="mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h2 className="text-2xl font-bold text-aviation-navy inline-block relative">
-              {t.home.trust}
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-aviation-red rounded-full opacity-30"></div>
-            </h2>
+            <div className="text-center">
+              <span className="text-xs font-bold text-aviation-red uppercase tracking-[0.2em] block mb-2">{t.home.certificationsLabel}</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-aviation-navy">
+                {t.home.trust}
+              </h2>
+            </div>
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap justify-center gap-12 md:gap-20 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+            className="flex flex-wrap justify-center items-center gap-8 md:gap-16 lg:gap-24 [filter:brightness(0)_saturate(100%)_invert(22%)_sepia(58%)_saturate(523%)_hue-rotate(173deg)_brightness(95%)_contrast(91%)]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: 0.1 } }
+              visible: { transition: { staggerChildren: 0.15 } }
             }}
           >
-            {/* Simple, clean logo representations */}
+            {/* ICAO Logo */}
             <motion.div
-              className="flex flex-col items-center gap-2 group cursor-default"
+              className="group cursor-default p-4"
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                hidden: { opacity: 0, y: 20, scale: 0.9 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }
               }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <Globe className="w-12 h-12 text-blue-600 mb-1 transform group-hover:-translate-y-1 transition-transform" />
-              <span className="font-black text-xl text-slate-800">ICAO</span>
+              <img
+                src={getAssetPath('/images/logo-icao.png')}
+                alt="ICAO - International Civil Aviation Organization"
+                className="h-28 md:h-32 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+              />
             </motion.div>
+
+            {/* IATA Logo */}
             <motion.div
-              className="flex flex-col items-center gap-2 group cursor-default"
+              className="group cursor-default p-4"
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                hidden: { opacity: 0, y: 20, scale: 0.9 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }
               }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <Award className="w-12 h-12 text-aviation-red mb-1 transform group-hover:-translate-y-1 transition-transform" />
-              <span className="font-black text-xl text-slate-800">IATA</span>
+              <img
+                src={getAssetPath('/images/logo-iata.png')}
+                alt="IATA - International Air Transport Association"
+                className="h-16 md:h-[4.5rem] w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+              />
             </motion.div>
+
+            {/* ANAC Logo */}
             <motion.div
-              className="flex flex-col items-center gap-2 group cursor-default"
+              className="group cursor-default p-4"
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                hidden: { opacity: 0, y: 20, scale: 0.9 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }
               }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <ShieldCheck className="w-12 h-12 text-yellow-500 mb-1 transform group-hover:-translate-y-1 transition-transform" />
-              <span className="font-black text-xl text-slate-800">ANAC</span>
+              <img
+                src={getAssetPath('/images/logo-anac.png')}
+                alt="ANAC - Agência Nacional de Aviação Civil"
+                className="h-16 md:h-20 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+              />
             </motion.div>
+
+            {/* FAA Logo */}
             <motion.div
-              className="flex flex-col items-center gap-2 group cursor-default"
+              className="group cursor-default p-4"
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                hidden: { opacity: 0, y: 20, scale: 0.9 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }
               }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <Award className="w-12 h-12 text-slate-700 mb-1 transform group-hover:-translate-y-1 transition-transform" />
-              <span className="font-black text-xl text-slate-800">FAA</span>
+              <img
+                src={getAssetPath('/images/logo-faa.png')}
+                alt="FAA - Federal Aviation Administration"
+                className="h-16 md:h-20 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+              />
             </motion.div>
           </motion.div>
         </div>
