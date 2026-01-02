@@ -4,6 +4,7 @@ import { Menu, X, Globe, ChevronDown, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +65,7 @@ export const Navbar: React.FC = () => {
           <div className="flex-shrink-0 flex items-center cursor-pointer z-50">
             <NavLink to="/" className="flex items-center group">
               <img
-                src="/images/logo-htc.png"
+                src={getAssetPath('/images/logo-htc.png')}
                 alt="HTC Training and Business"
                 className="h-16 md:h-20 w-auto transition-transform duration-300 group-hover:scale-105"
               />

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const TermsOfService: React.FC = () => {
   const { language } = useLanguage();
@@ -18,7 +19,7 @@ export const TermsOfService: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/header-terms.png"
+            src={getAssetPath("/images/header-terms.png")}
             alt="Sky texture"
             className="w-full h-full object-cover opacity-30"
           />

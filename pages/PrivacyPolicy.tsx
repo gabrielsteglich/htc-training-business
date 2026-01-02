@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const PrivacyPolicy: React.FC = () => {
   const { language } = useLanguage();
@@ -18,7 +19,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/header-privacy.png"
+            src={getAssetPath("/images/header-privacy.png")}
             alt="Sky texture"
             className="w-full h-full object-cover opacity-30"
           />

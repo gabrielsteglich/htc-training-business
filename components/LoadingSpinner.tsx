@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { getAssetPath } from '../utils/assetPath';
 
 export const LoadingSpinner: React.FC = () => {
     return (
@@ -21,7 +22,7 @@ export const LoadingSpinner: React.FC = () => {
                 <div className="absolute inset-0 bg-blue-500 blur-2xl opacity-20 rounded-full scale-150"></div>
 
                 <motion.img
-                    src="/favicon.png"
+                    src={getAssetPath("/favicon.png")}
                     alt="Loading..."
                     className="w-24 h-24 object-contain relative z-10"
                     animate={{ rotate: 360 }}

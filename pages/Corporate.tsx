@@ -5,6 +5,7 @@ import { Button } from '../components/Button';
 import { Briefcase, BarChart, Settings, Check, ArrowRight, Building2, Laptop, Map } from 'lucide-react';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const Corporate: React.FC = () => {
     const { language } = useLanguage();
@@ -41,7 +42,7 @@ export const Corporate: React.FC = () => {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/images/header-corporate.png"
+                        src={getAssetPath("/images/header-corporate.png")}
                         alt="Corporate Meeting"
                         className="w-full h-full object-cover opacity-30"
                     />
@@ -238,7 +239,7 @@ export const Corporate: React.FC = () => {
                         >
                             <div className="absolute -inset-4 bg-white/5 rounded-2xl transform rotate-3"></div>
                             <img
-                                src="/images/corporate-classroom.png"
+                                src={getAssetPath("/images/corporate-classroom.png")}
                                 alt="Instructor leading corporate training"
                                 className="relative rounded-2xl shadow-2xl border border-white/10 transition-transform duration-500 hover:scale-105"
                             />

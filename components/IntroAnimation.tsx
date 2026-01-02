@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Plane } from 'lucide-react';
+import { getAssetPath } from '../utils/assetPath';
 
 interface IntroAnimationProps {
     onComplete: () => void;
@@ -31,7 +32,7 @@ export const IntroAnimation: React.FC<IntroAnimationProps> = ({ onComplete }) =>
                     transition={{ duration: 0.8, ease: "backOut", delay: 0.1 }}
                     className="mb-8"
                 >
-                    <img src="/favicon.png" alt="HTC Logo" className="w-32 h-32 object-contain" />
+                    <img src={getAssetPath("/favicon.png")} alt="HTC Logo" className="w-32 h-32 object-contain" />
                 </motion.div>
 
                 {/* Separator Line */}

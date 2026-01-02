@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, Eye, Heart, ShieldCheck, CheckCircle, Users, Trophy, History } from 'lucide-react';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const About: React.FC = () => {
   const { language } = useLanguage();
@@ -20,7 +21,7 @@ export const About: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/header-about.png"
+            src={getAssetPath("/images/header-about.png")}
             alt="Aviation Runway"
             className="w-full h-full object-cover opacity-30"
           />
@@ -87,7 +88,7 @@ export const About: React.FC = () => {
             {/* Main Image with Styling */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform lg:rotate-2 hover:rotate-0 transition-transform duration-500 z-10">
               <img
-                src="/images/about-instructor.jpg"
+                src={getAssetPath("/images/about-instructor.jpg")}
                 alt="Instructor in classroom"
                 className="w-full h-auto object-cover"
               />

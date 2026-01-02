@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Send, HelpCircle, ChevronDown, ChevronUp, Clock, G
 import { Button } from '../components/Button';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const Contact: React.FC = () => {
   const { language } = useLanguage();
@@ -75,7 +76,7 @@ ${formData.message}
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/header-contact.png"
+            src={getAssetPath("/images/header-contact.png")}
             alt="Sky texture"
             className="w-full h-full object-cover opacity-30"
           />

@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle, Download, FileText, Settings, Briefcase, Award
 import { Button } from '../components/Button';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const Services: React.FC = () => {
   const { language } = useLanguage();
@@ -21,10 +22,10 @@ export const Services: React.FC = () => {
 
   // Image Mapping for Consulting Services
   const CONSULTING_IMAGES: Record<string, string> = {
-    'certification': "/images/service-certification.png",
-    'manuals': "/images/service-manuals.png",
-    'audits-quality': "/images/service-audit.png",
-    'psychology-selection': "/images/service-psychology.png"
+    'certification': getAssetPath("/images/service-certification.png"),
+    'manuals': getAssetPath("/images/service-manuals.png"),
+    'audits-quality': getAssetPath("/images/service-audit.png"),
+    'psychology-selection': getAssetPath("/images/service-psychology.png")
   };
 
   return (
@@ -34,7 +35,7 @@ export const Services: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/header-services.png"
+            src={getAssetPath("/images/header-services.png")}
             alt="Sky texture"
             className="w-full h-full object-cover opacity-30"
           />

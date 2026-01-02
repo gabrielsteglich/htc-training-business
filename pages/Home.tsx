@@ -6,12 +6,13 @@ import { Button } from '../components/Button';
 import { IntroAnimation } from '../components/IntroAnimation';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1478860409698-8707f313ee8b?q=80&w=2070&auto=format&fit=crop", // Slide 1: Dark Blue Cockpit
   "https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=2070&auto=format&fit=crop", // Slide 2: Pilots/Human Factors
   "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=2070&auto=format&fit=crop",  // Slide 3: Tarmac/Ground Ops
-  "/images/dgr_slider_bg.png"   // Slide 4: DGR / Cargo Logistics
+  getAssetPath("/images/dgr_slider_bg.png")   // Slide 4: DGR / Cargo Logistics
 ];
 
 export const Home: React.FC = () => {
@@ -458,7 +459,7 @@ export const Home: React.FC = () => {
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/home_cta_bg_ai.png"
+            src={getAssetPath("/images/home_cta_bg_ai.png")}
             alt="Airport runway at sunset - HTC Training and Business"
             className="w-full h-full object-cover"
           />

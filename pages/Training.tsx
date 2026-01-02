@@ -5,6 +5,7 @@ import { Button } from '../components/Button';
 import { Check, Clock, Globe, Award, FileCheck, BookOpen, ChevronRight } from 'lucide-react';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 import { useLocation } from 'react-router-dom';
 
@@ -36,8 +37,8 @@ export const Training: React.FC = () => {
 
   // Image Mapping with High-Availability URLs
   const TRAINING_IMAGES: Record<string, string> = {
-    'crm': "/images/crm-training.jpg",
-    'avsec': "/images/avsec-training.jpg",
+    'crm': getAssetPath("/images/crm-training.jpg"),
+    'avsec': getAssetPath("/images/avsec-training.jpg"),
     'dgr': "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
     'safety-culture': "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
     'qsms': "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop"
@@ -52,7 +53,7 @@ export const Training: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/header-training.png"
+            src={getAssetPath("/images/header-training.png")}
             alt="Sky texture"
             className="w-full h-full object-cover opacity-30"
           />
