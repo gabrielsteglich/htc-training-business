@@ -80,7 +80,7 @@ function App() {
   return (
     <ErrorBoundary>
       <LanguageProvider>
-        <Router>
+        <Router basename={import.meta.env.BASE_URL}>
           <ScrollToTop />
           <div className="flex flex-col min-h-screen font-sans bg-white text-slate-900">
             <Navbar />

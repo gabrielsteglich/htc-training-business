@@ -4,6 +4,7 @@ import { Package, Truck, AlertTriangle, FileText, CheckCircle2, Plane, Globe, Sh
 import { Button } from '../components/Button';
 import { CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { getAssetPath } from '../utils/assetPath';
 
 export const DGRLanding: React.FC = () => {
    const { language } = useLanguage();
@@ -269,7 +270,7 @@ ${formData.message}
                   >
                      <div className="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-500">
                         <img
-                           src={lp.aboutCourse.image}
+                           src={getAssetPath(lp.aboutCourse.image)}
                            alt={lp.aboutCourse.title}
                            className="w-full h-auto object-cover"
                         />

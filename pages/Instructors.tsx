@@ -64,7 +64,7 @@ export const Instructors: React.FC = () => {
               {/* Image Column */}
               <div className="lg:w-1/3 bg-slate-200 relative min-h-[400px]">
                 <img
-                  src={instructor.avatar || "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop"}
+                  src={instructor.avatar ? getAssetPath(instructor.avatar) : "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop"}
                   alt={instructor.name}
                   className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-500 hover:brightness-110"
                 />
