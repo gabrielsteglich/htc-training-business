@@ -1301,7 +1301,7 @@ export const CONTENT = {
       list: [
         {
           name: 'Irio Vaz',
-          role: 'Instrutor Sênior',
+          role: 'Administrative Director at HTC',
           bio: 'Especialista em Performance Humana e CRM com mais de 25 anos de experiência na aviação comercial e corporativa.',
           avatar: '/images/irio-vaz.png',
           email: 'irio.vayz@htc-brasil.com.br',
