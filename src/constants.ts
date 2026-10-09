@@ -100,10 +100,10 @@ export const CONTENT = {
         ]
       },
       syllabus: {
-        title: 'Conteúdo Programático Homologado',
-        subtitle: 'Cobrindo todos os requisitos da grade curricular obrigatória.',
-        initial: ['Ameaça e Erro (TEM)', 'Consciência Situacional', 'Tomada de Decisão', 'Comunicação Assertiva', 'Liderança e Trabalho em Equipe', 'Automação e Monitoramento'],
-        recurrent: ['Estudos de Caso Recentes', 'Atualização Regulatória', 'Fadiga Humana (RBAC 117)', 'CRM em Single-Pilot (se aplicável)', 'Gerenciamento de Startle Effect']
+        title: 'Conteúdo Programático',
+        subtitle: 'Entre em contato conosco para conhecer os detalhes do treinamento.',
+        initial: ['Em conformidade com a grade curricular vigente da ANAC.'],
+        recurrent: ['Em conformidade com a grade curricular vigente da ANAC.']
       },
       whyUs: {
         title: 'Por que a HTC é a escolha de grandes operadores?',
@@ -160,10 +160,10 @@ export const CONTENT = {
         ]
       },
       syllabus: {
-        title: 'Currículo Baseado em Competência (CBTA)',
-        subtitle: 'Conformidade total com a última edição do manual IATA DGR e RBAC 175.',
-        initial: ['Filosofia Geral e Limitações', 'Classificação (Classes 1 a 9)', 'Lista de Artigos Perigosos', 'Instruções de Embalagem', 'Marcação e Etiquetagem', 'Documentação (DGD/NOTOC)'],
-        recurrent: ['Atualizações da Edição IATA Vigente', 'Estudos de Caso de Incidentes', 'Procedimentos de Emergência', 'Baterias de Lítio (Novas Regras)', 'Materiais Radioativos (Opcional)']
+        title: 'Conteúdo Programático',
+        subtitle: 'Entre em contato conosco para conhecer os detalhes do treinamento.',
+        initial: ['Em conformidade com a grade curricular vigente da ANAC.'],
+        recurrent: ['Em conformidade com a grade curricular vigente da ANAC.']
       },
       whyUs: {
         title: 'Expertise em Logística Aérea',
@@ -220,10 +220,10 @@ export const CONTENT = {
         ]
       },
       syllabus: {
-        title: 'Módulos Operacionais e Gerenciais',
-        subtitle: 'Atendendo desde o check-in até o cockpit, conforme PNAVSEC.',
-        ground: ['Controle de Acesso em Áreas Restritas (ARS)', 'Inspeção de Passageiros e Bagagem (R-X)', 'Proteção de Aeronave Estacionada', 'Verificação de Segurança de Aeronave', 'Entrevista de Segurança'],
-        flight: ['Gerenciamento de Pax Indisciplinado', 'Ameaça de Bomba em Voo', 'Procedimentos de Sequestro', 'Defesa Pessoal Básica (Opcional)', 'Varredura de Cabine']
+        title: 'Conteúdo Programático',
+        subtitle: 'Entre em contato conosco para conhecer os detalhes do treinamento.',
+        ground: ['Em conformidade com a grade curricular vigente da ANAC.'],
+        flight: ['Em conformidade com a grade curricular vigente da ANAC.']
       },
       whyUs: {
         title: 'Segurança é nossa prioridade',
@@ -253,7 +253,7 @@ export const CONTENT = {
         {
           tag: 'Proteção da Aviação Civil',
           title: 'AVSEC: Conformidade Total',
-          desc: 'Treinamento homologado para operadores aéreos e aeroportos. Garantia de aprovação em auditorias da ANAC.'
+          desc: 'Treinamento homologado. Garantia de aprovação em auditorias da ANAC.'
         },
         {
           tag: 'Artigos Perigosos',
@@ -463,13 +463,13 @@ export const CONTENT = {
         title: 'CRM - Crew Resource Management',
         category: 'CRM',
         description: 'Fundamental para a segurança de voo. Focamos não apenas na teoria, mas na aplicação dos conceitos de CRM dentro da cultura organizacional da sua empresa.',
-        audience: 'Pilotos, Comissários, Despachantes, Mecânicos',
+        audience: 'Pilotos, Comissários, Despachantes, Mecânicos e público corporativo',
         icon: Users,
-        delivery: ['Presencial', 'Híbrido', 'In-Company'],
+        delivery: ['Presencial', 'In-Company'],
         duration: '16h (Inicial) / 8h (Recorrente)',
         certification: 'Homologado ANAC',
         requirements: 'Vínculo com operador aéreo',
-        syllabus: ['Consciência Situacional', 'Processo Decisório', 'Comunicação e Assertividade', 'Gerenciamento de Ameaça e Erro (TEM)', 'Automação e Monitoramento', 'Liderança e Trabalho em Equipe']
+        syllabus: ['Em conformidade com a grade curricular vigente da ANAC. Entre em contato conosco para conhecer os detalhes.']
       },
       {
         id: 'avsec',
@@ -482,20 +482,20 @@ export const CONTENT = {
         duration: 'Varia por Módulo (4h a 40h)',
         certification: 'Conforme RBAC 107 / 108',
         requirements: 'Verificação de Antecedentes Criminais',
-        syllabus: ['Atos de Interferência Ilícita', 'Controle de Acesso', 'Inspeção de Pax e Bagagem', 'Proteção de Aeronave', 'Resposta a Emergência de Segurança', 'Cultura de Segurança']
+        syllabus: ['Em conformidade com a grade curricular vigente da ANAC. Entre em contato conosco para conhecer os detalhes.']
       },
       {
         id: 'dgr',
         title: 'DGR - Artigos Perigosos',
         category: 'DGR',
         description: 'Essencial para operadores que transportam carga. Capacitamos expedidores e tripulantes a identificar riscos ocultos e manusear cargas especiais com segurança.',
-        audience: 'Expedidores, Pilotos, Comissários, Rampa',
+        audience: 'Expedidores, Pilotos, Comissários, Equipes de Rampa, entre outros',
         icon: AlertTriangle,
-        delivery: ['Online', 'Presencial', 'Híbrido'],
-        duration: 'Inicial: 24h a 40h / Recorrente: 16h',
+        delivery: ['Online', 'Presencial'],
+        duration: 'Inicial / Recorrente',
         certification: 'IATA C-BTA / ANAC RBAC 175',
         requirements: 'Sem pré-requisitos específicos',
-        syllabus: ['Classificação de Artigos Perigosos (Classes 1-9)', 'Limitações e Proibições', 'Instruções de Embalagem', 'Marcação e Etiquetagem', 'Documentação (DGD/NOTOC)', 'Procedimentos de Emergência']
+        syllabus: ['Em conformidade com a grade curricular vigente da ANAC. Entre em contato conosco para conhecer os detalhes.']
       },
       {
         id: 'safety-culture',
@@ -504,11 +504,11 @@ export const CONTENT = {
         description: 'Curso para gestores. Ensina a transformar dados de relatórios em ações preventivas, protegendo o CNPJ da empresa e a vida dos passageiros.',
         audience: 'Gestores, Oficiais de Segurança, Diretores',
         icon: Globe,
-        delivery: ['Presencial', 'Híbrido'],
+        delivery: ['Presencial'],
         duration: '24 Horas',
         certification: 'Certificado Corporativo',
         requirements: 'Experiência prévia em aviação recomendada',
-        syllabus: ['Política e Objetivos de Segurança', 'Gerenciamento de Risco', 'Garantia da Segurança', 'Promoção da Segurança', 'Relatos e Cultura Justa', 'Investigação de Ocorrências (Básico)']
+        syllabus: ['Em conformidade com a grade curricular vigente da ANAC. Entre em contato conosco para conhecer os detalhes.']
       },
       {
         id: 'qsms',
@@ -517,11 +517,11 @@ export const CONTENT = {
         description: 'Integração de Qualidade e Segurança. Ideal para empresas que buscam certificações ISO ou melhoria em seus processos internos de auditoria.',
         audience: 'Gestores, Técnicos de Segurança, Equipes de Qualidade',
         icon: Factory,
-        delivery: ['Presencial', 'Híbrido', 'In-Company'],
+        delivery: ['Presencial', 'In-Company'],
         duration: 'Personalizado',
         certification: 'SGI / Certificação Corporativa',
         requirements: 'Sem pré-requisitos específicos',
-        syllabus: ['Gestão da Qualidade (ISO 9001)', 'Segurança Ocupacional (ISO 45001)', 'Gestão Ambiental (ISO 14001)', 'Saúde Ocupacional', 'Auditorias Internas SGI', 'Planejamento e Implementação']
+        syllabus: ['Entre em contato conosco para conhecer o conteúdo programático adequado às necessidades da sua empresa.']
       }
     ],
     // ... rest of pages
@@ -854,10 +854,10 @@ export const CONTENT = {
         ]
       },
       syllabus: {
-        title: 'Approved Syllabus Content',
-        subtitle: 'Covering all requirements of the mandatory curriculum.',
-        initial: ['Threat & Error Mgmt (TEM)', 'Situational Awareness', 'Decision Making', 'Assertive Communication', 'Leadership & Teamwork', 'Automation & Monitoring'],
-        recurrent: ['Recent Case Studies', 'Regulatory Update', 'Human Fatigue (RBAC 117)', 'Single-Pilot CRM (if applicable)', 'Startle Effect Management']
+        title: 'Course Syllabus',
+        subtitle: 'Contact us for training details.',
+        initial: ['In accordance with the current ANAC curriculum.'],
+        recurrent: ['In accordance with the current ANAC curriculum.']
       },
       whyUs: {
         title: 'Why do major operators choose HTC?',
@@ -913,10 +913,10 @@ export const CONTENT = {
         ]
       },
       syllabus: {
-        title: 'Competency-Based Training (CBTA)',
-        subtitle: 'Full compliance with the latest edition of IATA DGR and RBAC 175.',
-        initial: ['General Philosophy & Limitations', 'Classification (Classes 1-9)', 'Dangerous Goods List', 'Packing Instructions', 'Marking & Labelling', 'Documentation (DGD/NOTOC)'],
-        recurrent: ['Current IATA Edition Updates', 'Incident Case Studies', 'Emergency Procedures', 'Lithium Batteries (New Rules)', 'Radioactive Materials (Optional)']
+        title: 'Course Syllabus',
+        subtitle: 'Contact us for training details.',
+        initial: ['In accordance with the current ANAC curriculum.'],
+        recurrent: ['In accordance with the current ANAC curriculum.']
       },
       whyUs: {
         title: 'Air Logistics Expertise',
@@ -973,10 +973,10 @@ export const CONTENT = {
         ]
       },
       syllabus: {
-        title: 'Operational and Management Modules',
-        subtitle: 'Covering from check-in to cockpit, according to PNAVSEC.',
-        ground: ['Access Control in Restricted Areas (SRA)', 'Pax and Baggage Screening (X-Ray)', 'Parked Aircraft Protection', 'Aircraft Security Check', 'Security Interview'],
-        flight: ['Unruly Passenger Management', 'Bomb Threat in Flight', 'Hijacking Procedures', 'Basic Self-Defense (Optional)', 'Cabin Search']
+        title: 'Course Syllabus',
+        subtitle: 'Contact us for training details.',
+        ground: ['In accordance with the current ANAC curriculum.'],
+        flight: ['In accordance with the current ANAC curriculum.']
       },
       whyUs: {
         title: 'Security is our priority',
@@ -1046,7 +1046,7 @@ export const CONTENT = {
         {
           tag: 'Civil Aviation Security',
           title: 'AVSEC: Total Compliance',
-          desc: 'Approved training for air operators and airports. Guaranteeing approval in ANAC audits.'
+          desc: 'Approved training. Guaranteeing approval in ANAC audits.'
         },
         {
           tag: 'Dangerous Goods',
@@ -1257,13 +1257,13 @@ export const CONTENT = {
         title: 'CRM - Crew Resource Management',
         category: 'CRM',
         description: 'Fundamental for flight safety. We focus not only on theory but on applying CRM concepts within your company\'s organizational culture.',
-        audience: 'Pilotos, Cabin Crew, Dispatchers, Mechanics',
+        audience: 'Pilots, Cabin Crew, Dispatchers, Mechanics and corporate personnel',
         icon: Users,
-        delivery: ['In-Person', 'Hybrid', 'In-Company'],
+        delivery: ['In-Person', 'In-Company'],
         duration: '16h (Initial) / 8h (Recurrent)',
         certification: 'ANAC Approved',
         requirements: 'Affiliation with air operator',
-        syllabus: ['Situational Awareness', 'Decision Making Process', 'Communication & Assertiveness', 'Threat & Error Management (TEM)', 'Automation & Monitoring', 'Leadership & Teamwork']
+        syllabus: ['In accordance with the current ANAC curriculum. Contact us for details.']
       },
       {
         id: 'avsec',
@@ -1276,20 +1276,20 @@ export const CONTENT = {
         duration: 'Varies by Module (4h to 40h)',
         certification: 'In accordance with RBAC 107 / 108',
         requirements: 'Criminal Background Check',
-        syllabus: ['Acts of Unlawful Interference', 'Access Control', 'Pax & Baggage Screening', 'Aircraft Protection', 'Security Emergency Response', 'Security Culture']
+        syllabus: ['In accordance with the current ANAC curriculum. Contact us for details.']
       },
       {
         id: 'dgr',
         title: 'DGR - Dangerous Goods Regulations',
         category: 'DGR',
         description: 'Essential for cargo operators. We enable shippers and crew to identify hidden risks and handle special cargo safely.',
-        audience: 'Shippers, Pilots, Cabin Crew, Ramp',
+        audience: 'Shippers, Pilots, Cabin Crew, Ramp Personnel, among others',
         icon: AlertTriangle,
-        delivery: ['Online', 'In-Person', 'Hybrid'],
-        duration: 'Initial: 24h to 40h / Recurrent: 16h',
+        delivery: ['Online', 'In-Person'],
+        duration: 'Initial / Recurrent',
         certification: 'IATA C-BTA / ANAC RBAC 175',
         requirements: 'No specific prerequisites',
-        syllabus: ['Dangerous Goods Classification (Classes 1-9)', 'Limitations & Prohibitions', 'Packing Instructions', 'Marking & Labelling', 'Documentation (DGD/NOTOC)', 'Emergency Procedures']
+        syllabus: ['In accordance with the current ANAC curriculum. Contact us for details.']
       },
       {
         id: 'safety-culture',
@@ -1298,11 +1298,11 @@ export const CONTENT = {
         description: 'Course for managers. Teaches how to transform data from reports into preventive actions, protecting the company\'s liabilities and passengers\' lives.',
         audience: 'Managers, Safety Officers, Directors',
         icon: Globe,
-        delivery: ['In-Person', 'Hybrid'],
+        delivery: ['In-Person'],
         duration: '24 Hours',
         certification: 'Corporate Certificate',
         requirements: 'Previous aviation experience recommended',
-        syllabus: ['Safety Policy & Objectives', 'Risk Management (Hazard ID)', 'Safety Assurance', 'Safety Promotion', 'Reporting & Just Culture', 'Occurrence Investigation (Basic)']
+        syllabus: ['In accordance with the current ANAC curriculum. Contact us for details.']
       },
       {
         id: 'qsms',
@@ -1311,11 +1311,11 @@ export const CONTENT = {
         description: 'Integration of Quality and Safety. Ideal for companies seeking ISO certifications or improvement in their internal audit processes.',
         audience: 'Managers, Safety Technicians, Quality Teams',
         icon: Factory,
-        delivery: ['In-Person', 'Hybrid', 'In-Company'],
+        delivery: ['In-Person', 'In-Company'],
         duration: 'Customized',
         certification: 'IMS / Corporate Certification',
         requirements: 'No specific prerequisites',
-        syllabus: ['Quality Management (ISO 9001)', 'Occupational Safety (ISO 45001)', 'Environmental Mgmt (ISO 14001)', 'Occupational Health', 'Internal IMS Audits', 'Planning and Implementation']
+        syllabus: ['Contact us for a course syllabus tailored to your company’s needs.']
       }
     ],
     // ...
