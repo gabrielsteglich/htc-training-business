@@ -1,0 +1,64 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:8-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript
+        run: npm run typecheck
+
+      - name: Security tests
+        env:
+          TEST_REDIS_URL: redis://127.0.0.1:6379
+        run: npm run test:security
+
+      - name: Dependency audit
+        run: npm audit --omit=dev --audit-level=moderate
+
+      - name: Production build
+        run: npm run build
+
+      - name: Prepare standalone assets
+        run: |
+          cp -R public .next/standalone/public
+          mkdir -p .next/standalone/.next
+          cp -R .next/static .next/standalone/.next/static
+
+      - name: Smoke test
+        run: |
+          cd .next/standalone
+          PORT=4174 HOSTNAME=127.0.0.1 node server.js &
+          SERVER_PID=$!
+          trap "kill $SERVER_PID" EXIT
+          cd ../..
+          for attempt in {1..20}; do
+            curl --silent --fail http://127.0.0.1:4174/ > /dev/null && break
+            sleep 1
+          done
+          SMOKE_BASE_URL=http://127.0.0.1:4174 npm run test:smoke
