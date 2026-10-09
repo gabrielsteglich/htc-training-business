@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { localizedMetadata } from "@/lib/server-language";
 import { CorporateClient } from "./CorporateClient";
 
-export const metadata: Metadata = {
-    title: "Corporativo",
-    description:
-        "Soluções corporativas em treinamento de aviação. Programas customizados para empresas aéreas e operadores.",
-};
+export const generateMetadata = () => localizedMetadata('/corporate');
 
 export default function CorporatePage() {
     return <CorporateClient />;

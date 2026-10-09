@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { LOCALES } from "@/lib/i18n";
 
 interface AnimatedCounterProps {
     value: string;
@@ -25,16 +27,13 @@ const parseValue = (
     return { number: 0, prefix: "", suffix: value };
 };
 
-const formatNumber = (num: number): string => {
-    return num.toLocaleString("pt-BR");
-};
-
 export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     value,
     duration = 2000,
     className = "",
 }) => {
-    const [displayValue, setDisplayValue] = useState("0");
+    const { language } = useLanguage();
+    const [displayValue, setDisplayValue] = useState(0);
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { once: true, amount: 0.5 });
     const hasAnimated = useRef(false);
@@ -61,12 +60,12 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
             const currentValue = Math.floor(
                 startValue + (targetNumber - startValue) * easedProgress
             );
-            setDisplayValue(formatNumber(currentValue));
+            setDisplayValue(currentValue);
 
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
-                setDisplayValue(formatNumber(targetNumber));
+                setDisplayValue(targetNumber);
             }
         };
 
@@ -86,7 +85,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
             transition={{ duration: 0.5 }}
         >
             {prefix}
-            {displayValue}
+            {displayValue.toLocaleString(LOCALES[language])}
             {suffix}
         </motion.span>
     );

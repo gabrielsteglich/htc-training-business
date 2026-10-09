@@ -7,7 +7,7 @@ import { Target, Eye, Heart, ShieldCheck, CheckCircle, Users, Trophy, History } 
 import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 export function AboutClient() {
-  const { language } = useLanguage();
+  const { language, ui } = useLanguage();
   const t = CONTENT[language];
   const { about_page } = t;
 
@@ -19,7 +19,7 @@ export function AboutClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/header-about.png"
-            alt="Aviation Runway"
+            alt={ui.images.runway}
             fill
             sizes="100vw"
             className="object-cover opacity-30"
@@ -30,7 +30,7 @@ export function AboutClient() {
 
         <div className="max-w-4xl mx-auto px-4 relative z-10 animate-fade-in-up">
           <div className="inline-block px-4 pt-0.5 pb-1.5 mb-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{language === 'pt' ? 'Desde 2004' : 'Since 2004'}</span>
+            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{ui.since}</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{about_page.title}</h1>
           <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-md font-light leading-relaxed">
@@ -51,7 +51,7 @@ export function AboutClient() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-1 bg-aviation-red"></div>
-              <h2 className="text-sm font-bold text-aviation-navy uppercase tracking-widest">{language === 'pt' ? 'Nossa História' : 'Our History'}</h2>
+              <h2 className="text-sm font-bold text-aviation-navy uppercase tracking-widest">{ui.history}</h2>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-aviation-navy mb-6 leading-tight">{about_page.introTitle}</h2>
             <div className="space-y-6 text-slate-600 text-lg leading-relaxed text-justify">
@@ -62,15 +62,15 @@ export function AboutClient() {
                 <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg border border-slate-100">
                   <History className="w-8 h-8 text-aviation-red" />
                   <div>
-                    <span className="block font-bold text-aviation-navy text-lg">20+ {language === 'pt' ? 'Anos' : 'Years'}</span>
-                    <span className="text-xs uppercase text-slate-500 font-semibold">{language === 'pt' ? 'Experiência' : 'Experience'}</span>
+                    <span className="block font-bold text-aviation-navy text-lg">20+ {ui.years}</span>
+                    <span className="text-xs uppercase text-slate-500 font-semibold">{ui.experience}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg border border-slate-100">
                   <Users className="w-8 h-8 text-aviation-blue" />
                   <div>
                     <span className="block font-bold text-aviation-navy text-lg">15k+</span>
-                    <span className="text-xs uppercase text-slate-500 font-semibold">{language === 'pt' ? 'Alunos' : 'Students'}</span>
+                    <span className="text-xs uppercase text-slate-500 font-semibold">{ui.students}</span>
                   </div>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export function AboutClient() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform lg:rotate-2 hover:rotate-0 transition-transform duration-500 z-10">
               <Image
                 src="/images/about-instructor.jpg"
-                alt="Instructor in classroom"
+                alt={ui.images.instructor}
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover"
@@ -106,8 +106,8 @@ export function AboutClient() {
                 <Trophy className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs text-slate-500 font-bold uppercase">{language === 'pt' ? 'Melhor Avaliado' : 'Top Rated'}</p>
-                <p className="text-aviation-navy font-bold">{language === 'pt' ? 'Treinamento Aviação' : 'Aviation Training'}</p>
+                <p className="text-xs text-slate-500 font-bold uppercase">{ui.topRated}</p>
+                <p className="text-aviation-navy font-bold">{ui.aviationTraining}</p>
               </div>
             </div>
           </motion.div>
@@ -124,7 +124,7 @@ export function AboutClient() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <span className="text-aviation-red font-bold uppercase tracking-widest text-xs mb-2 block">{language === 'pt' ? 'Confiança Corporativa' : 'Corporate Trust'}</span>
+            <span className="text-aviation-red font-bold uppercase tracking-widest text-xs mb-2 block">{ui.corporateTrust}</span>
             <h2 className="text-3xl font-bold text-aviation-navy">{about_page.clientsTitle}</h2>
             <div className="w-24 h-1 bg-aviation-red mx-auto mt-6 rounded-full"></div>
           </motion.div>
@@ -280,7 +280,7 @@ export function AboutClient() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="inline-block px-3 py-1 bg-aviation-red rounded-sm text-xs font-bold uppercase tracking-widest mb-6">Liderança</div>
+              <div className="inline-block px-3 py-1 bg-aviation-red rounded-sm text-xs font-bold uppercase tracking-widest mb-6">{ui.leadership}</div>
               <h2 className="text-3xl font-bold text-white mb-6 leading-tight">{about_page.aviationTitle}</h2>
               <p className="text-slate-300 mb-6 leading-relaxed text-lg font-light">
                 {about_page.aviationText}
@@ -323,7 +323,7 @@ export function AboutClient() {
                   <div key={idx} className="bg-white p-3 rounded-lg flex items-center justify-center h-20 opacity-90 hover:opacity-100 transition-opacity overflow-hidden">
                     <Image
                       src={`/images/certifications/${logo}`}
-                      alt={`Partner Logo ${idx + 1}`}
+                      alt={`${ui.images.partner} ${idx + 1}`}
                       width={100}
                       height={60}
                       className="max-h-full max-w-full object-contain"

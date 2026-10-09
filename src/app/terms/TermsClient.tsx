@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 export function TermsClient() {
-  const { language } = useLanguage();
+  const { language, ui } = useLanguage();
   const t = CONTENT[language];
   const { terms_page } = t;
 
@@ -17,7 +17,7 @@ export function TermsClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/header-terms.png"
-            alt="Sky texture"
+            alt={ui.images.sky}
             fill
             sizes="100vw"
             className="object-cover opacity-30"
@@ -28,7 +28,7 @@ export function TermsClient() {
 
         <div className="max-w-4xl mx-auto px-4 relative z-10 animate-fade-in-up">
           <div className="inline-block px-4 pt-0.5 pb-1.5 mb-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{language === 'pt' ? 'Legal' : 'Legal'}</span>
+            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{ui.legal}</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{terms_page.title}</h1>
           <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-md font-medium">

@@ -3,14 +3,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { Globe } from "lucide-react";
+import { LanguageSelector } from "@/components/LanguageSelector";
+import { LOCALES, type Language } from "@/lib/i18n";
 import { useLanguage } from "@/context/LanguageContext";
 import { MENU_DATA, ALLERGEN_LABELS, Allergen } from "./data";
 
 // --- Utility Components ---
 
 const PriceTag = ({ priceCents }: { priceCents: number }) => {
-    const formatted = new Intl.NumberFormat("pt-BR", {
+    const { language } = useLanguage();
+    const formatted = new Intl.NumberFormat(LOCALES[language], {
         style: "currency",
         currency: "BRL",
     }).format(priceCents / 100);
@@ -22,7 +24,7 @@ const PriceTag = ({ priceCents }: { priceCents: number }) => {
     );
 };
 
-const AllergenChip = ({ type, language }: { type: Allergen; language: "pt" | "en" }) => {
+const AllergenChip = ({ type, language }: { type: Allergen; language: Language }) => {
     const label = ALLERGEN_LABELS[type]?.[language] || type;
     return (
         <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-100 px-2 py-0.5 rounded-full">
@@ -34,7 +36,7 @@ const AllergenChip = ({ type, language }: { type: Allergen; language: "pt" | "en
 // --- Main Page Component ---
 
 export default function MenuPage() {
-    const { language, toggleLanguage } = useLanguage();
+    const { language, ui } = useLanguage();
     const [activeCategory, setActiveCategory] = useState<string>(MENU_DATA[0].id);
     const headerRef = useRef<HTMLDivElement>(null);
     const navRef = useRef<HTMLDivElement>(null);
@@ -82,12 +84,12 @@ export default function MenuPage() {
         <div className="pb-20">
             {/* --- Header --- */}
             <header ref={headerRef} className="bg-white pt-6 pb-4 px-6 flex justify-between items-center shadow-sm relative z-40">
-                <h1 className="sr-only">HTC Diner — Cardápio</h1>
+                <h1 className="sr-only">HTC Diner — {ui.menu}</h1>
                 <div className="flex items-center gap-2.5">
                     <div className="relative w-14 h-14 md:w-16 md:h-16">
                         <Image
                             src="/images/htc-diner-logo.png"
-                            alt="HTC Diner Logo"
+                            alt="HTC Diner"
                             fill
                             className="object-contain"
                             priority
@@ -100,13 +102,7 @@ export default function MenuPage() {
                     </div>
                 </div>
 
-                <button
-                    onClick={toggleLanguage}
-                    className="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-full text-sm font-semibold text-slate-700 hover:bg-slate-200 transition-colors"
-                >
-                    <Globe className="w-4 h-4" />
-                    <span>{language === "pt" ? "BR" : "US"}</span>
-                </button>
+                <LanguageSelector />
             </header>
 
             {/* --- Sticky Navigation --- */}
@@ -176,7 +172,7 @@ export default function MenuPage() {
                                                 </h3>
                                                 {!item.isAvailable && (
                                                     <span className="text-[10px] font-bold uppercase bg-red-100 text-red-700 px-2 py-0.5 rounded ml-2 whitespace-nowrap">
-                                                        {language === 'pt' ? 'Esgotado' : 'Sold Out'}
+                                                        {ui.soldOut}
                                                     </span>
                                                 )}
                                             </div>
@@ -227,7 +223,7 @@ export default function MenuPage() {
 
             <footer className="mt-20 py-8 text-center text-slate-400 text-xs border-t border-slate-100">
                 <p>© 2026 HTC Training and Business</p>
-                <p className="mt-1">{language === 'pt' ? 'Imagens meramente ilustrativas.' : 'Images are for illustrative purposes only.'}</p>
+                <p className="mt-1">{ui.imagesDisclaimer}</p>
             </footer>
         </div>
     );

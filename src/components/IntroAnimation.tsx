@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface IntroAnimationProps {
     onComplete: () => void;
@@ -11,6 +12,7 @@ interface IntroAnimationProps {
 export const IntroAnimation: React.FC<IntroAnimationProps> = ({
     onComplete,
 }) => {
+    const { ui } = useLanguage();
     return (
         <motion.div
             className="fixed inset-0 z-[100] flex items-center justify-center bg-aviation-navy overflow-hidden"
@@ -36,7 +38,7 @@ export const IntroAnimation: React.FC<IntroAnimationProps> = ({
                 >
                     <Image
                         src="/favicon.png"
-                        alt="HTC Logo"
+                        alt="HTC"
                         width={128}
                         height={128}
                         className="w-32 h-32 object-contain"
@@ -58,7 +60,7 @@ export const IntroAnimation: React.FC<IntroAnimationProps> = ({
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                         className="text-lg md:text-xl text-white font-bold tracking-[0.3em] uppercase"
                     >
-                        Seja Bem-Vindo
+                        {ui.welcome}
                     </motion.p>
                 </div>
 

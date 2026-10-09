@@ -26,7 +26,7 @@ const HERO_IMAGES = [
 
 
 export function HomeClient() {
-  const { language } = useLanguage();
+  const { language, ui } = useLanguage();
   const t = CONTENT[language];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -140,7 +140,7 @@ export function HomeClient() {
           >
             <Image
               src={img}
-              alt={`Slide ${index + 1}`}
+              alt={t.home.heroSlides[index].tag}
               fill
               sizes="100vw"
               priority={index === 0}
@@ -195,7 +195,7 @@ export function HomeClient() {
               onClick={() => setCurrentSlide(index)}
               className={`h-1.5 rounded-full transition-all duration-500 ${currentSlide === index ? 'bg-aviation-red w-12' : 'bg-white/40 w-4 hover:bg-white'
                 }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`${ui.goToSlide} ${index + 1}`}
             />
           ))}
         </div>
@@ -265,7 +265,7 @@ export function HomeClient() {
         <div className="absolute inset-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2400&auto=format&fit=crop"
-            alt="Global connections"
+            alt={ui.images.connections}
             fill
             sizes="100vw"
             className="object-cover"
@@ -318,7 +318,7 @@ export function HomeClient() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div>
-              <h2 className="text-sm font-bold text-aviation-red uppercase tracking-[0.2em] mb-3">HTC Expertise</h2>
+              <h2 className="text-sm font-bold text-aviation-red uppercase tracking-[0.2em] mb-3">{ui.expertise}</h2>
               <h3 className="text-4xl font-bold text-aviation-navy">{t.home.programsTitle}</h3>
             </div>
             <Link href="/training" className="hidden md:flex items-center text-aviation-navy font-bold hover:text-aviation-red transition-colors group">
@@ -439,7 +439,7 @@ export function HomeClient() {
             >
               <Image
                 src="/images/logo-icao.png"
-                alt="ICAO - International Civil Aviation Organization"
+                alt="ICAO"
                 width={180}
                 height={128}
                 className="h-28 md:h-32 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
@@ -458,7 +458,7 @@ export function HomeClient() {
             >
               <Image
                 src="/images/logo-iata.png"
-                alt="IATA - International Air Transport Association"
+                alt="IATA"
                 width={120}
                 height={72}
                 className="h-16 md:h-[4.5rem] w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
@@ -477,7 +477,7 @@ export function HomeClient() {
             >
               <Image
                 src="/images/logo-anac.png"
-                alt="ANAC - Agência Nacional de Aviação Civil"
+                alt="ANAC"
                 width={100}
                 height={80}
                 className="h-16 md:h-20 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
@@ -496,7 +496,7 @@ export function HomeClient() {
             >
               <Image
                 src="/images/logo-faa.png"
-                alt="FAA - Federal Aviation Administration"
+                alt="FAA"
                 width={100}
                 height={80}
                 className="h-16 md:h-20 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
@@ -512,7 +512,7 @@ export function HomeClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/home_cta_bg_ai.png"
-            alt="Airport runway at sunset - HTC Training and Business"
+            alt={ui.images.runway}
             fill
             sizes="100vw"
             className="object-cover"

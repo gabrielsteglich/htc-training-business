@@ -9,7 +9,7 @@ import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 import { ContactRequestError, sendContact } from '@/lib/contact-client';
 export function AVSECLandingClient() {
-   const { language } = useLanguage();
+   const { language, ui } = useLanguage();
    const t = CONTENT[language];
    const lp = t.avsec_lp;
    const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,10 +48,10 @@ export function AVSECLandingClient() {
             source: 'Landing page AVSEC',
             audienceSize: formData.studentCount,
             website: formData.website,
-         });
+         }, language);
          setFormStatus({
             type: 'success',
-            message: language === 'pt' ? 'Solicitação enviada com sucesso!' : 'Request sent successfully!',
+            message: ui.requestSent,
          });
          setFormData({
             name: '',
@@ -67,7 +67,7 @@ export function AVSECLandingClient() {
             type: 'error',
             message: error instanceof ContactRequestError
                ? error.message
-               : (language === 'pt' ? 'Não foi possível enviar. Tente novamente.' : 'Unable to send. Please try again.'),
+               : ui.sendError,
          });
       } finally {
          setIsSubmitting(false);
@@ -83,7 +83,7 @@ export function AVSECLandingClient() {
             <div className="absolute inset-0 z-0">
                <Image
                   src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=2400&auto=format&fit=crop"
-                  alt="Airport Security"
+                  alt={ui.images.security}
                   fill
                   sizes="100vw"
                   priority
@@ -117,7 +117,7 @@ export function AVSECLandingClient() {
                      <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-300">
                         <div className="flex items-center gap-2">
                            <Award className="w-5 h-5 text-blue-400" />
-                           <span>Homologado ANAC</span>
+                           <span>{ui.anac}</span>
                         </div>
                         <div className="flex items-center gap-2">
                            <FileText className="w-5 h-5 text-blue-400" />
@@ -125,7 +125,7 @@ export function AVSECLandingClient() {
                         </div>
                         <div className="flex items-center gap-2">
                            <Globe className="w-5 h-5 text-blue-400" />
-                           <span>ICAO Annex 17</span>
+                           <span>{ui.icaoAnnex}</span>
                         </div>
                      </div>
                   </motion.div>
@@ -207,7 +207,7 @@ export function AVSECLandingClient() {
                               {isSubmitting ? (
                                  <>
                                     <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
-                                    <span className="sr-only">{language === 'pt' ? 'Enviando' : 'Sending'}</span>
+                                    <span className="sr-only">{ui.sending}</span>
                                  </>
                               ) : t.buttons.quoteNow}
                            </Button>
@@ -251,7 +251,7 @@ export function AVSECLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <Award className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'ANAC Homologado' : 'ANAC Authorized'}</span>
+                  <Award className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.anac}</span>
                </motion.div>
                <motion.div
                   className="flex items-center gap-2"
@@ -260,7 +260,7 @@ export function AVSECLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <ShieldCheck className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'PF Homologado' : 'PF Compliant'}</span>
+                  <ShieldCheck className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.pf}</span>
                </motion.div>
                <motion.div
                   className="flex items-center gap-2"
@@ -269,7 +269,7 @@ export function AVSECLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <Globe className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'Padrão ICAO' : 'ICAO Standard'}</span>
+                  <Globe className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.icao}</span>
                </motion.div>
             </motion.div>
          </div>
@@ -330,7 +330,7 @@ export function AVSECLandingClient() {
                            </div>
                            <div>
                               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                                 {language === 'pt' ? 'Certificado' : 'Certified'}
+                                 {ui.certified}
                               </p>
                               <p className="text-sm font-bold text-aviation-navy leading-tight">
                                  ANAC & PF
@@ -424,7 +424,7 @@ export function AVSECLandingClient() {
                         <div className="bg-blue-600 text-white p-2 rounded">
                            <Scan className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-aviation-navy">Operações de Solo</h3>
+                        <h3 className="text-xl font-bold text-aviation-navy">{ui.ground}</h3>
                      </div>
                      <ul className="space-y-3">
                         {lp.syllabus.ground.map((topic, i) => (
@@ -448,7 +448,7 @@ export function AVSECLandingClient() {
                         <div className="bg-aviation-navy text-white p-2 rounded">
                            <Plane className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-aviation-navy">Segurança em Voo</h3>
+                        <h3 className="text-xl font-bold text-aviation-navy">{ui.flight}</h3>
                      </div>
                      <ul className="space-y-3">
                         {lp.syllabus.flight.map((topic, i) => (

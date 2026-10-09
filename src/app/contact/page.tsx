@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { localizedMetadata } from "@/lib/server-language";
 import { ContactClient } from "./ContactClient";
 
-export const metadata: Metadata = {
-    title: "Contato",
-    description:
-        "Entre em contato com a HTC Training and Business. Solicite uma proposta para treinamentos em aviação.",
-};
+export const generateMetadata = () => localizedMetadata('/contact');
 
 export default function ContactPage() {
     return <ContactClient />;

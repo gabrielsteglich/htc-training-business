@@ -14,7 +14,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 
 export function TrainingClient() {
-  const { language } = useLanguage();
+  const { language, ui } = useLanguage();
   const t = CONTENT[language];
   // Handle Hash Scrolling
   useEffect(() => {
@@ -69,7 +69,7 @@ export function TrainingClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/header-training.png"
-            alt="Sky texture"
+            alt={ui.images.sky}
             fill
             sizes="100vw"
             className="object-cover opacity-30"
@@ -80,7 +80,7 @@ export function TrainingClient() {
 
         <div className="max-w-4xl mx-auto px-4 relative z-10 animate-fade-in-up">
           <div className="inline-block px-4 pt-0.5 pb-1.5 mb-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{language === 'pt' ? 'Qualificação Profissional' : 'Professional Qualification'}</span>
+            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{ui.professional}</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{t.training_page.title}</h1>
           <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-md font-light leading-relaxed">{t.training_page.subtitle}</p>
@@ -130,7 +130,7 @@ export function TrainingClient() {
                   {course.requirements && (
                     <div className="flex items-start gap-2 text-xs text-slate-300">
                       <FileCheck className="w-4 h-4 mt-0.5" />
-                      <span>{language === 'pt' ? 'Pré-req: ' : 'Prereq: '}{course.requirements}</span>
+                      <span>{ui.prerequisites}{course.requirements}</span>
                     </div>
                   )}
                 </div>
@@ -168,7 +168,7 @@ export function TrainingClient() {
                     <div className="mb-8">
                       <h4 className="flex items-center text-sm font-bold text-aviation-navy uppercase tracking-widest mb-4">
                         <BookOpen className="w-4 h-4 mr-2 text-aviation-red" />
-                        {language === 'pt' ? 'Conteúdo Programático' : 'Course Syllabus'}
+                        {ui.syllabus}
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
                         {course.syllabus.map((topic, idx) => (
@@ -191,7 +191,7 @@ export function TrainingClient() {
                           "/contact"
                   } fullWidth className="flex-1 flex justify-center items-center gap-2 group">
                     {(course.id === 'crm' || course.id === 'dgr' || course.id === 'avsec')
-                      ? (language === 'pt' ? 'Página do Curso' : 'View Course Page')
+                      ? ui.coursePage
                       : t.buttons.syllabus}
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </ButtonLink>
@@ -217,7 +217,7 @@ export function TrainingClient() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <span className="text-aviation-red font-bold uppercase tracking-widest text-sm mb-3 block">
-              {language === 'pt' ? 'Diferencial HTC' : 'The HTC Difference'}
+              {ui.difference}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t.training_page.methodology?.title}</h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">

@@ -9,7 +9,7 @@ import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 import { ContactRequestError, sendContact } from '@/lib/contact-client';
 export function CRMLandingClient() {
-   const { language } = useLanguage();
+   const { language, ui } = useLanguage();
    const t = CONTENT[language];
    const lp = t.crm_lp;
    const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,10 +48,10 @@ export function CRMLandingClient() {
             source: 'Landing page CRM',
             audienceSize: formData.crewSize,
             website: formData.website,
-         });
+         }, language);
          setFormStatus({
             type: 'success',
-            message: language === 'pt' ? 'Solicitação enviada com sucesso!' : 'Request sent successfully!',
+            message: ui.requestSent,
          });
          setFormData({
             name: '',
@@ -67,7 +67,7 @@ export function CRMLandingClient() {
             type: 'error',
             message: error instanceof ContactRequestError
                ? error.message
-               : (language === 'pt' ? 'Não foi possível enviar. Tente novamente.' : 'Unable to send. Please try again.'),
+               : ui.sendError,
          });
       } finally {
          setIsSubmitting(false);
@@ -83,7 +83,7 @@ export function CRMLandingClient() {
             <div className="absolute inset-0 z-0">
                <Image
                   src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=2400&auto=format&fit=crop"
-                  alt="Cockpit Crew"
+                  alt={ui.images.cockpit}
                   fill
                   sizes="100vw"
                   priority
@@ -120,11 +120,11 @@ export function CRMLandingClient() {
                         </div>
                         <div className="flex items-center gap-2">
                            <FileText className="w-5 h-5 text-aviation-red" />
-                           <span>IS 00-002 Compliant</span>
+                           <span>{ui.isCompliant}</span>
                         </div>
                         <div className="flex items-center gap-2">
                            <Users className="w-5 h-5 text-aviation-red" />
-                           <span>In-Company / EAD</span>
+                           <span>{ui.online}</span>
                         </div>
                      </div>
                   </motion.div>
@@ -206,7 +206,7 @@ export function CRMLandingClient() {
                               {isSubmitting ? (
                                  <>
                                     <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
-                                    <span className="sr-only">{language === 'pt' ? 'Enviando' : 'Sending'}</span>
+                                    <span className="sr-only">{ui.sending}</span>
                                  </>
                               ) : t.buttons.quoteNow}
                            </Button>
@@ -252,7 +252,7 @@ export function CRMLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <Award className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'ANAC Homologado' : 'ANAC Approved'}</span>
+                  <Award className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.anac}</span>
                </motion.div>
                <motion.div
                   className="flex items-center gap-2"
@@ -261,7 +261,7 @@ export function CRMLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <Globe className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'Padrão ICAO' : 'ICAO Standard'}</span>
+                  <Globe className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.icao}</span>
                </motion.div>
                <motion.div
                   className="flex items-center gap-2"
@@ -331,10 +331,10 @@ export function CRMLandingClient() {
                            </div>
                            <div>
                               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                                 {language === 'pt' ? 'Melhor Avaliado' : 'Top Rated'}
+                                 {ui.topRated}
                               </p>
                               <p className="text-sm font-bold text-aviation-navy leading-tight">
-                                 {language === 'pt' ? 'Treinamento Aviação' : 'Aviation Training'}
+                                 {ui.aviationTraining}
                               </p>
                            </div>
                         </div>
@@ -375,10 +375,10 @@ export function CRMLandingClient() {
                            </div>
                            <div>
                               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                                 {language === 'pt' ? 'Alta Fidelidade' : 'High Fidelity'}
+                                 {ui.fidelity}
                               </p>
                               <p className="text-sm font-bold text-aviation-navy leading-tight">
-                                 Full Motion Sim
+                              {ui.fullMotion}
                               </p>
                            </div>
                         </div>
@@ -569,7 +569,7 @@ export function CRMLandingClient() {
                         <div className="bg-aviation-navy text-white p-2 rounded">
                            <Plane className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-aviation-navy">CRM Inicial (16h)</h3>
+                        <h3 className="text-xl font-bold text-aviation-navy">CRM {ui.initial} (16h)</h3>
                      </div>
                      <ul className="space-y-3">
                         {lp.syllabus.initial.map((topic, i) => (
@@ -593,7 +593,7 @@ export function CRMLandingClient() {
                         <div className="bg-aviation-red text-white p-2 rounded">
                            <Clock className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-aviation-navy">CRM Recorrente (8h)</h3>
+                        <h3 className="text-xl font-bold text-aviation-navy">CRM {ui.recurrent} (8h)</h3>
                      </div>
                      <ul className="space-y-3">
                         {lp.syllabus.recurrent.map((topic, i) => (

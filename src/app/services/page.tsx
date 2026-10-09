@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { localizedMetadata } from "@/lib/server-language";
 import { ServicesClient } from "./ServicesClient";
 
-export const metadata: Metadata = {
-    title: "Serviços",
-    description:
-        "Serviços especializados em aviação: certificação, manuais, auditorias e consultoria. HTC Training and Business.",
-};
+export const generateMetadata = () => localizedMetadata('/services');
 
 export default function ServicesPage() {
     return <ServicesClient />;

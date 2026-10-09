@@ -8,7 +8,7 @@ import { Briefcase, BarChart, Settings, Check, ArrowRight, Building2, Laptop, Ma
 import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 export function CorporateClient() {
-    const { language } = useLanguage();
+    const { language, ui } = useLanguage();
     const t = CONTENT[language];
     const { corporate_page } = t;
 
@@ -39,7 +39,7 @@ export function CorporateClient() {
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/images/header-corporate.png"
-                        alt="Corporate Meeting"
+                        alt={ui.images.meeting}
                         fill
                         sizes="100vw"
                         className="object-cover opacity-30"
@@ -50,7 +50,7 @@ export function CorporateClient() {
 
                 <div className="max-w-4xl mx-auto px-4 relative z-10 animate-fade-in-up">
                     <div className="inline-block px-4 pt-0.5 pb-1.5 mb-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-                        <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{language === 'pt' ? 'Soluções B2B' : 'B2B Solutions'}</span>
+                        <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{ui.b2b}</span>
                     </div>
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg tracking-tight">{corporate_page.title}</h1>
                     <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-md font-light leading-relaxed">
@@ -234,7 +234,7 @@ export function CorporateClient() {
                             <div className="absolute inset-0 sm:-inset-4 bg-white/5 rounded-2xl transform sm:rotate-3"></div>
                             <Image
                                 src="/images/corporate-classroom.png"
-                                alt="Instructor leading corporate training"
+                                alt={ui.images.corporateTraining}
                                 width={800}
                                 height={600}
                                 className="relative rounded-2xl shadow-2xl border border-white/10 transition-transform duration-500 hover:scale-105"
@@ -252,7 +252,7 @@ export function CorporateClient() {
                         fill
                         sizes="100vw"
                         className="object-cover opacity-10"
-                        alt="Wing"
+                        alt={ui.images.wing}
                     />
                 </div>
                 <motion.div

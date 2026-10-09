@@ -1,10 +1,7 @@
-import type { Metadata } from "next";
+import { localizedMetadata } from "@/lib/server-language";
 import { TermsClient } from "./TermsClient";
 
-export const metadata: Metadata = {
-    title: "Termos de Serviço",
-    description: "Termos de Serviço da HTC Training and Business.",
-};
+export const generateMetadata = () => localizedMetadata('/terms');
 
 export default function TermsPage() {
     return <TermsClient />;

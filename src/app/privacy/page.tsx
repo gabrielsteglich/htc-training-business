@@ -1,10 +1,7 @@
-import type { Metadata } from "next";
+import { localizedMetadata } from "@/lib/server-language";
 import { PrivacyClient } from "./PrivacyClient";
 
-export const metadata: Metadata = {
-    title: "Política de Privacidade",
-    description: "Política de Privacidade da HTC Training and Business.",
-};
+export const generateMetadata = () => localizedMetadata('/privacy');
 
 export default function PrivacyPage() {
     return <PrivacyClient />;

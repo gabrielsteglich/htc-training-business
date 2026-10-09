@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { localizedMetadata } from "@/lib/server-language";
 import { InstructorsClient } from "./InstructorsClient";
 
-export const metadata: Metadata = {
-    title: "Instrutores",
-    description:
-        "Conheça nossos instrutores especializados em aviação. Profissionais com décadas de experiência.",
-};
+export const generateMetadata = () => localizedMetadata('/instructors');
 
 export default function InstructorsPage() {
     return <InstructorsClient />;

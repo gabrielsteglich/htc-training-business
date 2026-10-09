@@ -1,4 +1,5 @@
 import type { ContactPayload, ContactResponse } from "@/types/contact";
+import { UI_TEXT, type Language } from "@/lib/i18n";
 
 export class ContactRequestError extends Error {
     constructor(message: string) {
@@ -7,7 +8,7 @@ export class ContactRequestError extends Error {
     }
 }
 
-export async function sendContact(payload: ContactPayload): Promise<ContactResponse> {
+export async function sendContact(payload: ContactPayload, language: Language = "pt"): Promise<ContactResponse> {
     const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -17,7 +18,8 @@ export async function sendContact(payload: ContactPayload): Promise<ContactRespo
     const data = (await response.json().catch(() => ({}))) as ContactResponse;
 
     if (!response.ok) {
-        throw new ContactRequestError(data.error || "Não foi possível enviar a mensagem.");
+        const ui = UI_TEXT[language];
+        throw new ContactRequestError(ui.errors[response.status] || ui.sendError);
     }
 
     return data;

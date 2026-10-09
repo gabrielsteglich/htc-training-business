@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { getServerLanguage } from "@/lib/server-language";
+import { LOCALES } from "@/lib/i18n";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://htc-brasil.com.br";
 
@@ -44,15 +46,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const language = await getServerLanguage();
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang={LOCALES[language]} suppressHydrationWarning>
       <body className={`${inter.variable} ${manrope.variable} font-sans antialiased`} suppressHydrationWarning>
-        <Providers>{children}</Providers>
+        <Providers initialLanguage={language}>{children}</Providers>
       </body>
     </html>
   );

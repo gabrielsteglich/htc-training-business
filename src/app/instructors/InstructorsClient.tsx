@@ -10,7 +10,7 @@ import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 
 export function InstructorsClient() {
-  const { language } = useLanguage();
+  const { language, ui } = useLanguage();
   const t = CONTENT[language];
   const { instructors_page } = t;
 
@@ -22,7 +22,7 @@ export function InstructorsClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/header-instructors.png"
-            alt="Sky texture"
+            alt={ui.images.sky}
             fill
             sizes="100vw"
             className="object-cover opacity-30"
@@ -33,7 +33,7 @@ export function InstructorsClient() {
 
         <div className="max-w-4xl mx-auto px-4 relative z-10 animate-fade-in-up">
           <div className="inline-block px-4 pt-0.5 pb-1.5 mb-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{language === 'pt' ? 'Nossos Especialistas' : 'Our Experts'}</span>
+            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{ui.experts}</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{instructors_page.title}</h1>
           <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-md font-medium">
@@ -88,7 +88,7 @@ export function InstructorsClient() {
                 <div className="mb-8">
                   <h3 className="flex items-center text-lg font-bold text-aviation-navy mb-6">
                     <Award className="w-5 h-5 text-aviation-red mr-2" />
-                    {language === 'pt' ? 'Qualificações & Certificações' : 'Qualifications & Certifications'}
+                    {ui.qualifications}
                   </h3>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

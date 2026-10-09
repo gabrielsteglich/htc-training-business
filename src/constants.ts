@@ -1,6 +1,9 @@
 import { Shield, Plane, AlertTriangle, Users, Globe, Award, FileText, Brain, Briefcase, Search, CheckSquare, HeartPulse, Clock, Navigation, Zap, Droplet, Stethoscope, Factory, TrendingUp, HelpCircle, BookOpen, MonitorPlay, Users2, Leaf, ClipboardCheck, PenTool, Rocket, BarChart3, Laptop, Map, GraduationCap, Building2, FileCheck, QrCode, ScanLine, CheckCircle2, AlertCircle, Package, Truck, Flame, Lock, Siren, UserX, Scan } from 'lucide-react';
 
+import { SPANISH_CONTENT } from './content/es';
+
 export const CONTENT = {
+  es: SPANISH_CONTENT,
   pt: {
     nav: [
       { label: 'Início', path: '/' },
@@ -740,7 +743,7 @@ export const CONTENT = {
         },
         {
           heading: 'Coleta de Informações',
-          content: 'Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e empresa, ao solicitar propostas, inscrever-se em cursos ou entrar em contato conosco. Para fins de certificação (ANAC), podemos solicitar dados adicionais conforme exigido pela regulamentação.'
+          content: 'Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e empresa, ao solicitar propostas, inscrever-se em cursos ou entrar em contato conosco. Para fins de certificação (ANAC), podemos solicitar dados adicionais conforme exigido pela regulamentação. Usamos um cookie de preferência para lembrar o idioma selecionado.'
         },
         {
           heading: 'Uso das Informações',
@@ -1532,7 +1535,7 @@ export const CONTENT = {
         },
         {
           heading: 'Information Collection',
-          content: 'We collect information you provide directly to us, such as name, email, phone, and company, when requesting proposals, enrolling in courses, or contacting us. For certification purposes (ANAC), we may request additional data as required by regulations.'
+          content: 'We collect information you provide directly to us, such as name, email, phone, and company, when requesting proposals, enrolling in courses, or contacting us. For certification purposes (ANAC), we may request additional data as required by regulations. We use a preference cookie to remember your selected language.'
         },
         {
           heading: 'Use of Information',

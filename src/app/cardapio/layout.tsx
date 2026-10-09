@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
+import { localizedMetadata } from '@/lib/server-language';
 
-export const metadata: Metadata = {
-    title: 'Menu Digital',
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    ...await localizedMetadata('/cardapio'),
     robots: { index: false, follow: false },
     icons: {
         icon: '/favicon.png',
         shortcut: '/favicon.png',
         apple: '/favicon.png',
     },
-};
+  };
+}
 
 export default function MenuLayout({
     children,

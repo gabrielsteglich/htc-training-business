@@ -4,17 +4,18 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Globe, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CONTENT } from "@/constants";
 import { useLanguage } from "@/context/LanguageContext";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 export const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [hoveredSubmenu, setHoveredSubmenu] = useState<string | null>(null);
     const pathname = usePathname();
-    const { language, toggleLanguage } = useLanguage();
+    const { language, ui } = useLanguage();
     const t = CONTENT[language];
 
     // Check if path is active
@@ -199,41 +200,7 @@ export const Navbar: React.FC = () => {
                             </div>
                         ))}
 
-                        {/* Language Dropdown */}
-                        <div className="relative group">
-                            <motion.button
-                                type="button"
-                                onClick={toggleLanguage}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors text-slate-600 font-semibold text-xs border border-slate-200"
-                                title="Mudar Idioma / Switch Language"
-                                aria-label={language === "pt" ? "Mudar idioma para inglês" : "Switch language to Portuguese"}
-                            >
-                                <Globe className="w-3.5 h-3.5" />
-                                <span>{language === "pt" ? "BR" : "US"}</span>
-                                <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
-                            </motion.button>
-
-                            {/* Dropdown */}
-                            <div className="absolute top-full right-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                                <div className="bg-white/95 backdrop-blur-sm shadow-xl rounded-lg overflow-hidden border border-slate-100 min-w-[100px]">
-                                    <button
-                                        type="button"
-                                        onClick={toggleLanguage}
-                                        className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-slate-50 hover:text-aviation-navy transition-colors flex items-center gap-2 cursor-pointer"
-                                    >
-                                        <Globe className="w-3.5 h-3.5" />
-                                        <span className="font-semibold">
-                                            {language === "pt" ? "US" : "BR"}
-                                        </span>
-                                        <span className="text-xs text-slate-400">
-                                            {language === "pt" ? "English" : "Português"}
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        <LanguageSelector />
 
                         <Link href="/contact" className="bg-aviation-navy text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-aviation-navy/20 hover:shadow-aviation-navy/40 hover:scale-105 active:scale-95 transition-all uppercase flex items-center gap-2">
                             <span>{t.buttons.getStarted}</span>
@@ -248,9 +215,7 @@ export const Navbar: React.FC = () => {
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-slate-700 hover:text-aviation-navy focus:outline-none p-2 bg-slate-100 rounded-full"
-                            aria-label={isOpen
-                                ? (language === "pt" ? "Fechar menu" : "Close menu")
-                                : (language === "pt" ? "Abrir menu" : "Open menu")}
+                            aria-label={isOpen ? ui.closeMenu : ui.openMenu}
                             aria-expanded={isOpen}
                             aria-controls="mobile-navigation"
                         >
@@ -321,18 +286,7 @@ export const Navbar: React.FC = () => {
                                 transition={{ delay: 0.4 }}
                                 className="pt-8 border-t border-slate-200 flex flex-col gap-4"
                             >
-                                <button
-                                    type="button"
-                                    onClick={toggleLanguage}
-                                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-100 text-slate-700 font-semibold"
-                                >
-                                    <Globe className="w-5 h-5" />
-                                    <span>
-                                        {language === "pt"
-                                            ? "Mudar para Inglês"
-                                            : "Switch to Portuguese"}
-                                    </span>
-                                </button>
+                                <LanguageSelector />
 
                                 <Link
                                     href="/contact"

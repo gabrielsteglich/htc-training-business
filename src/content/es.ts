@@ -1,0 +1,323 @@
+import { Award, AlertTriangle, BarChart3, BookOpen, Brain, Briefcase, Building2, CheckSquare, ClipboardCheck, Clock, Droplet, Factory, FileText, Globe, HeartPulse, Laptop, Map, Navigation, PenTool, Plane, Rocket, ScanLine, Search, Shield, Stethoscope, TrendingUp, Users, Users2, Zap } from 'lucide-react';
+
+export const SPANISH_CONTENT = {
+  nav: [
+    { label: 'Inicio', path: '/' },
+    { label: 'Nosotros', path: '/about', submenu: [{ label: 'Visión general', path: '/about' }, { label: 'Instructores', path: '/instructors' }] },
+    { label: 'Servicios', path: '/services', submenu: [{ label: 'Visión general', path: '/services' }, { label: 'Capacitación', path: '/training' }] },
+    { label: 'Empresas', path: '/corporate' },
+    { label: 'Contacto', path: '/contact' },
+  ],
+  buttons: {
+    getStarted: 'COMENZAR', explore: 'Explorar programas', contact: 'Contáctenos', learnMore: 'Más información',
+    requestProposal: 'Presupuesto corporativo', viewAll: 'Ver todos los cursos', details: 'Solicitar información',
+    catalog: 'Descargar catálogo corporativo', schedule: 'Agendar una reunión', syllabus: 'Solicitar programa y precios',
+    sendMessage: 'Enviar mensaje', viewProfile: 'Ver perfil completo', enroll: 'Inscriba a su equipo',
+    whatsapp: 'Contactar por WhatsApp', quoteNow: 'Solicitar presupuesto de capacitación',
+  },
+  crm_lp: {
+    hero: {
+      badge: 'Capacitación obligatoria ANAC', title: 'CRM corporativo de alto rendimiento',
+      subtitle: 'Eleve el nivel de seguridad y eficiencia de su tripulación con la capacitación CRM de HTC. Metodología centrada en la realidad operacional (RBAC 135/121).',
+      formTitle: 'Solicite una propuesta', formSubtitle: 'Reciba un presupuesto personalizado para su empresa en un plazo de 24 horas.',
+      form: {
+        name: 'Nombre completo', email: 'Correo corporativo', phone: 'Teléfono', crewSize: 'Tripulantes', company: 'Empresa',
+        placeholders: { name: 'Su nombre', email: 'nombre@empresa.com', phone: '+55 (21) 9999-9999', company: 'Nombre de la empresa aérea' },
+        privacy: 'Sus datos están protegidos. Respuesta en un plazo de 24 horas hábiles.',
+      },
+    },
+    aboutCourse: {
+      badge: 'Metodología inmersiva', title: 'Capacitación centrada en la realidad',
+      description: 'Nuestra capacitación CRM va más allá de la teoría. Utilizamos casos reales y dinámicas de grupo para simular situaciones críticas de vuelo, preparando a su tripulación para tomar decisiones acertadas bajo presión.',
+      stats: [{ label: 'Aprobación ANAC', value: '100%' }, { label: 'Ejercicios prácticos', value: 'Práctica' }], image: '/images/crm-classroom.jpg',
+    },
+    crmSim: {
+      badge: 'Capacitación avanzada', title: 'CRM-LOS: simulador realista',
+      description: 'Integre los conceptos de CRM directamente en la cabina. Nuestras sesiones de Line Oriented Simulation (LOS) permiten a los pilotos practicar la comunicación y la gestión de la carga de trabajo en escenarios de alta fidelidad.',
+      image: '/images/crm-simulator.jpg', features: ['Escenarios personalizados', 'Debriefing asistido por video', 'Instructores de vuelo sénior'],
+    },
+    testimonials: {
+      badge: 'Testimonios', title: 'Lo que dicen nuestros clientes',
+      items: [{ quote: 'La presencia del especialista en CRM en las sesiones me pareció muy productiva, ya que aporta madurez y profesionalismo a la capacitación y permite realizar correcciones, intervenciones y análisis precisos y realistas. Para ello, el especialista debe tener un amplio dominio de la aviación, y estoy seguro de que Irio cuenta con esa cualificación.', author: 'Cliente corporativo', role: 'Operador aéreo', company: '' }],
+    },
+    painPoints: {
+      title: '¿Por qué su operación necesita esta capacitación?',
+      items: [
+        { title: 'Cumplimiento ANAC', desc: 'Evite multas y no conformidades en las auditorías de rampa.' },
+        { title: 'Reducción de errores', desc: 'Mitigue el error humano, principal causa de accidentes aéreos.' },
+        { title: 'Cultura justa', desc: 'Fomente una cultura de notificación y seguridad psicológica.' },
+      ],
+    },
+    syllabus: {
+      title: 'Programa del curso', subtitle: 'Contáctenos para conocer los detalles de la capacitación.',
+      initial: ['De conformidad con el plan de estudios vigente de la ANAC.'], recurrent: ['De conformidad con el plan de estudios vigente de la ANAC.'],
+    },
+    whyUs: {
+      title: '¿Por qué los grandes operadores eligen HTC?',
+      items: [
+        { title: 'Personalización real', desc: 'No usamos presentaciones genéricas. Analizamos su MGO y adaptamos los casos a sus operaciones.' },
+        { title: 'Instructores sénior', desc: 'Clases impartidas por comandantes y gestores con décadas de experiencia en aviación comercial y offshore.' },
+        { title: 'Certificación ágil', desc: 'Emisión de certificados digitales con código QR inmediatamente después de finalizar el curso.' },
+      ],
+    },
+    cta: { title: '¿Listo para elevar el nivel de su tripulación?', desc: 'Reserve la mejor fecha para su capacitación. Atendemos en todo Brasil.' },
+  },
+  dgr_lp: {
+    hero: {
+      badge: 'Certificación IATA y ANAC', title: 'DGR: transporte aéreo seguro y eficiente',
+      subtitle: 'Capacitación especializada en mercancías peligrosas para expedidores, agentes de carga y operadores aéreos. Evite multas y retenciones de carga.',
+      formTitle: 'Presupuesto para empresas', formSubtitle: 'Capacite a su equipo logístico y operacional. Cursos en línea y presenciales.',
+      form: {
+        name: 'Nombre completo', email: 'Correo corporativo', phone: 'Teléfono', studentCount: 'Número de alumnos', company: 'Empresa',
+        placeholders: { name: 'Su nombre', email: 'nombre@empresa.com', phone: '+55 (21) 9999-9999', company: 'Empresa logística o aérea' },
+        privacy: 'Sus datos están protegidos. Respuesta en un plazo de 24 horas hábiles.',
+      },
+    },
+    aboutCourse: {
+      badge: 'Certificación IATA', title: 'Domine el transporte de mercancías peligrosas',
+      description: 'Capacitación completa para que su operación cumpla las rigurosas normas de IATA y ANAC (RBAC 175). Enfoque práctico en la identificación, embalaje, etiquetado y documentación de mercancías peligrosas.',
+      stats: [{ label: 'Metodología', value: 'CBTA' }, { label: 'Instructores', value: 'IATA Cat. 6' }], image: '/images/dgr-classroom.jpg',
+    },
+    painPoints: {
+      title: '¿Su carga está en riesgo?',
+      items: [
+        { title: 'Multas elevadas', desc: 'Las declaraciones incorrectas generan multas importantes de la ANAC y restricciones de las aerolíneas.' },
+        { title: 'Carga retenida', desc: 'Los errores de embalaje o etiquetado provocan retrasos críticos en la cadena logística.' },
+        { title: 'Seguridad operacional', desc: 'La manipulación incorrecta puede provocar incendios a bordo y accidentes mortales.' },
+      ],
+    },
+    syllabus: {
+      title: 'Programa del curso', subtitle: 'Contáctenos para conocer los detalles de la capacitación.',
+      initial: ['De conformidad con el plan de estudios vigente de la ANAC.'], recurrent: ['De conformidad con el plan de estudios vigente de la ANAC.'],
+    },
+    whyUs: {
+      title: 'Experiencia en logística aérea',
+      items: [
+        { title: 'Instructores acreditados', desc: 'Profesionales con certificación IATA Category 6 y experiencia en terminales de carga.' },
+        { title: 'Enfoque práctico', desc: 'Ejercicios reales de cumplimentación de DGD, listas de verificación y etiquetado.' },
+        { title: 'Certificado válido', desc: 'Reconocido por todas las aerolíneas y los auditores de la ANAC.' },
+      ],
+    },
+    cta: { title: 'Garantice la fluidez de su logística', desc: 'Certifique a sus expedidores y verificadores con especialistas en DGR.' },
+  },
+  avsec_lp: {
+    hero: {
+      badge: 'Protección de la aviación civil', title: 'AVSEC: seguridad contra actos ilícitos',
+      subtitle: 'Capacitación homologada para tripulantes, agentes aeroportuarios y equipos de tierra. Cumplimiento riguroso de los RBAC 107 y 108.',
+      formTitle: 'Presupuesto de capacitación', formSubtitle: 'Evite no conformidades en las auditorías de la ANAC y la Policía Federal.',
+      form: {
+        name: 'Nombre completo', email: 'Correo corporativo', phone: 'Teléfono', studentCount: 'Número de alumnos', company: 'Empresa',
+        placeholders: { name: 'Su nombre', email: 'nombre@empresa.com', phone: '+55 (21) 9999-9999', company: 'Operador aéreo / aeropuerto' },
+        privacy: 'Sus datos están protegidos. Respuesta en un plazo de 24 horas hábiles.',
+      },
+    },
+    aboutCourse: {
+      badge: 'Inspección y seguridad', title: 'Formación completa en AVSEC',
+      description: 'Capacite a su equipo para identificar y mitigar las amenazas a la aviación civil. Nuestros cursos siguen rigurosamente los reglamentos de la ANAC (RBAC 107/108) y las mejores prácticas internacionales para proteger a pasajeros, tripulantes e infraestructura.',
+      stats: [{ label: 'Cumplimiento', value: 'RBAC 108' }, { label: 'Metodología', value: 'Práctica' }], image: '/images/avsec-classroom.jpg',
+    },
+    painPoints: {
+      title: 'Las vulnerabilidades cuestan caro',
+      items: [
+        { title: 'Pasajeros indisciplinados', desc: 'El aumento de las agresiones y los disturbios a bordo exige preparación.' },
+        { title: 'Auditorías rigurosas', desc: 'Las fallas en los procedimientos de inspección generan multas y la suspensión del COA.' },
+        { title: 'Amenazas emergentes', desc: 'Los nuevos métodos de ocultación exigen la actualización constante de los equipos.' },
+      ],
+    },
+    syllabus: {
+      title: 'Programa del curso', subtitle: 'Contáctenos para conocer los detalles de la capacitación.',
+      ground: ['De conformidad con el plan de estudios vigente de la ANAC.'], flight: ['De conformidad con el plan de estudios vigente de la ANAC.'],
+    },
+    whyUs: {
+      title: 'La seguridad es nuestra prioridad',
+      items: [
+        { title: 'Instructores de élite', desc: 'Equipo integrado por exmilitares y gestores de seguridad aeroportuaria.' },
+        { title: 'Simulaciones reales', desc: 'Capacitación práctica en inspección e identificación de artefactos simulados.' },
+        { title: 'Acreditación', desc: 'Homologación ante la ANAC para impartir cursos AVSEC.' },
+      ],
+    },
+    cta: { title: 'Proteja su operación ahora', desc: 'Agende la capacitación de su equipo y garantice la seguridad de sus vuelos.' },
+  },
+  home: {
+    heroSlides: [
+      { tag: 'Estándares internacionales de aviación', title: 'Elevando la seguridad y el rendimiento', desc: 'Capacitación especializada en aviación (CRM, AVSEC, DGR, entre otros) para profesionales que exigen excelencia. Cumplimiento, seguridad y experiencia en un solo lugar.' },
+      { tag: 'Factores humanos', title: 'CRM: cultura y seguridad', desc: 'Programas CRM adaptados a la cultura y los SOP de su empresa. Formamos tripulaciones resilientes y estandarizadas.' },
+      { tag: 'Protección de la aviación civil', title: 'AVSEC: cumplimiento total', desc: 'Capacitación homologada. Garantía de aprobación en las auditorías de la ANAC.' },
+      { tag: 'Mercancías peligrosas', title: 'DGR: logística segura', desc: 'Certificación IATA para toda la cadena logística. Evite multas y garantice la seguridad del transporte de cargas especiales.' },
+    ],
+    heroTag: 'Estándares internacionales de aviación', heroTitle: 'Elevando la seguridad y el rendimiento',
+    heroDesc: 'Capacitación especializada en aviación (CRM, AVSEC, DGR, entre otros) para profesionales que exigen excelencia. Cumplimiento, seguridad y experiencia en un solo lugar.',
+    whyChoose: 'Por qué elegir HTC', excellence: 'Excelencia en cada detalle', programsTitle: 'Programas de capacitación',
+    trust: 'Estándares de cumplimiento confiables', certificationsLabel: 'Certificaciones',
+    ctaTitle: '¿Su operación necesita capacitación estandarizada?',
+    ctaDesc: 'Desarrollamos cronogramas que no afectan sus turnos. Hable con nuestros especialistas sobre contratos corporativos.',
+    stats: [{ value: '20+', label: 'Años en el mercado' }, { value: '15k+', label: 'Profesionales capacitados' }, { value: '50+', label: 'Empresas atendidas' }, { value: '100%', label: 'Aprobación en auditorías' }],
+  },
+  features: [
+    { title: 'Enfoque en el operador', description: 'Contenido adaptado a los SOP y manuales de su empresa.', icon: Briefcase },
+    { title: 'Instructores sénior', description: 'Profesionales con amplia experiencia en grandes empresas de sus respectivas áreas.', icon: Users },
+    { title: 'Flexibilidad logística', description: 'Capacitación en su empresa o en línea para optimizar los turnos de sus empleados.', icon: Map },
+    { title: 'Cumplimiento garantizado', description: 'Cursos diseñados para que su empresa cumpla las normas aplicables.', icon: Award },
+  ],
+  services_page: {
+    title: 'Portafolio de servicios', subtitle: 'Desde la capacitación reglamentaria hasta la certificación operacional. Ofrecemos soluciones integrales para diversos sectores del mercado.',
+    sectionTitle: 'Nuestros servicios', operationalTitle: 'Capacitación operacional', consultingTitle: 'Consultoría y asesoría', includes: 'Qué incluye:',
+    tailoredTitle: 'Soluciones a medida',
+    tailoredDesc1: 'Entendemos que cada empresa tiene desafíos únicos. Ya sea una multinacional, una gran industria o una organización en crecimiento, adaptamos nuestros servicios a su realidad.',
+    tailoredDesc2: 'Nuestro equipo actúa como una extensión de su departamento de capacitación y calidad, garantizando el cumplimiento, la eficiencia operacional y el desarrollo humano.',
+    tailoredBoxTitle: '100% personalizable', tailoredBoxDesc: 'Programa adaptado a sus SOP y a la cultura de su empresa.',
+    catalogTitle: '¿No encontró lo que busca?', catalogDesc: 'Nuestro portafolio evoluciona constantemente para atender sus necesidades.',
+  },
+  services_list: [
+    { id: 'crm-full', title: 'CRM - Corporate Resource Management', description: 'Capacitación integral en competencias interpersonales basada en CBT.', icon: Users, features: ['CRM inicial y recurrente', 'CRM corporativo', 'CRM Single Pilot', 'CRM - LOS'] },
+    { id: 'avsec-full', title: 'AVSEC - Seguridad de la aviación', description: 'Capacitación completa en seguridad de la aviación civil contra actos de interferencia ilícita, protegiendo a pasajeros, tripulantes y operaciones en tierra.', icon: Shield, features: ['AVSEC para tripulantes', 'AVSEC básico', 'Inspección AVSEC'] },
+    { id: 'dgr-full', title: 'DGR - Mercancías peligrosas', description: 'Capacitación compatible con IATA/ICAO para la manipulación de mercancías peligrosas.', icon: AlertTriangle, features: ['Cursos según su PTAP', 'Elaboración de su PTAP', 'Cursos regulares'] },
+    { id: 'sms-sgso', title: 'SGSO / Capacitación SMS', description: 'Formación en sistemas de gestión de la seguridad operacional para todos los niveles.', icon: CheckSquare, features: ['Introducción al SGSO', 'Curso de gestor de seguridad', 'Gestión de riesgos', 'Investigación de sucesos'] },
+    { id: 'fatigue', title: 'Gestión de la fatiga', description: 'Gestión de la fatiga humana en operaciones 24/7 (RBAC 117).', icon: Clock, features: ['Concientización sobre la fatiga', 'Implementación de FRMS', 'Estrategias de turnos', 'Rendimiento humano'] },
+    { id: 'emergency', title: 'Emergencias y supervivencia', description: 'Capacitación práctica y teórica para situaciones de emergencia.', icon: Zap, features: ['Supervivencia en selva y mar', 'Lucha contra incendios', 'Procedimientos de evacuación', 'Ejercicios de amerizaje'] },
+    { id: 'first-aid', title: 'Primeros auxilios y salud', description: 'Capacitación en respuesta médica para emergencias en vuelo y en tierra.', icon: HeartPulse, features: ['Primeros auxilios a bordo', 'Uso de RCP y DEA', 'Enfermedades tropicales', 'Salud del pasajero'] },
+    { id: 'tech-ops', title: 'Operaciones técnicas especiales', description: 'Cursos avanzados de navegación técnica y seguridad operacional.', icon: Navigation, features: ['PBN (navegación basada en la performance)', 'Operaciones RVSM', 'Concientización ALAR / CFIT', 'Operaciones invernales / Deshielo'] },
+    { id: 'certification', title: 'Certificación operacional', description: 'Apoyo integral para obtener y mantener certificados de operador aéreo (COA).', icon: Award, features: ['Certificación RBAC 135 / 121', 'Procesos CHETA', 'Incorporación de aeronaves', 'Especificaciones operativas (OpSpecs)'] },
+    { id: 'manuals', title: 'Ingeniería de manuales', description: 'Desarrollo y revisión de manuales operacionales obligatorios.', icon: FileText, features: ['MGM (mantenimiento general)', 'MGO (operaciones generales)', 'Piera / PAE', 'Programas de seguridad (PSO)'] },
+    { id: 'audits-quality', title: 'Auditorías y garantía de calidad', description: 'Auditorías internas y preparatorias para estándares internacionales.', icon: Search, features: ['Análisis de brechas IOSA / ISAGO', 'Auditorías internas de seguridad', 'Auditorías de proveedores', 'Configuración del control de calidad'] },
+    { id: 'psychology-selection', title: 'Psicología y selección', description: 'Servicios de factores humanos para la gestión del personal.', icon: Brain, features: ['Reclutamiento y selección', 'Evaluación psicológica', 'Apoyo en factores humanos', 'Clima organizacional'] },
+  ],
+  training_page: {
+    title: 'Programas de capacitación', subtitle: 'Cualificación técnica y conductual de alto rendimiento para el desarrollo de sus equipos.',
+    targetAudience: 'Dirigido a', bannerTitle: '¿Necesita capacitar a un equipo completo?',
+    bannerDesc: 'Ofrecemos condiciones especiales para grupos privados y contratos corporativos anuales.', btnCorporate: 'Ver soluciones corporativas',
+    methodology: {
+      title: 'Nuestra metodología', subtitle: 'Centrada en la retención del conocimiento y su aplicación práctica en los procedimientos de su empresa.',
+      items: [
+        { title: 'Andragogía aplicada', desc: 'Enfoque en el aprendizaje de adultos, valorando la experiencia previa de los tripulantes.', icon: Users2 },
+        { title: 'Enfoque en sus SOP', desc: 'Integramos los procedimientos operacionales estándar de su empresa en el programa del curso.', icon: FileText },
+        { title: 'Material actualizado', desc: 'Contenido revisado constantemente según los últimos RBAC y las enmiendas de la ICAO.', icon: BookOpen },
+      ],
+    },
+    differentials: {
+      title: 'Estándar corporativo de excelencia', subtitle: 'Seguridad jurídica y operacional para su empresa. Ofrecemos más que cursos: ofrecemos cumplimiento.',
+      items: [
+        { title: 'Homologación ANAC', desc: 'Todo el programa se audita rigurosamente y cumple los RBAC y las IS vigentes.', icon: Shield },
+        { title: 'Trazabilidad total', desc: 'Certificados digitales con código QR único para una validación inmediata en las auditorías de rampa.', icon: ScanLine },
+        { title: 'Gestión de grupos', desc: 'Informes de asistencia y rendimiento técnico de su tripulación.', icon: BarChart3 },
+        { title: 'Enfoque operacional', desc: 'Instructores activos en el sector que llevan la realidad de las operaciones al aula.', icon: Plane },
+      ],
+    },
+  },
+  courses_list: [
+    { id: 'crm', title: 'CRM - Crew Resource Management', category: 'CRM', description: 'Fundamental para la seguridad de vuelo. Nos centramos en la teoría y en la aplicación de los conceptos CRM dentro de la cultura organizacional de su empresa.', audience: 'Pilotos, tripulantes de cabina, despachadores, mecánicos y personal corporativo', icon: Users, delivery: ['Presencial', 'In-Company'], duration: '16 h (Inicial) / 8 h (Recurrente)', certification: 'Homologado ANAC', requirements: 'Vínculo con un operador aéreo', syllabus: ['De conformidad con el plan de estudios vigente de la ANAC. Contáctenos para conocer los detalles.'] },
+    { id: 'avsec', title: 'AVSEC - Seguridad de la aviación', category: 'AVSEC', description: 'Prepare a sus equipos de tierra y vuelo para prevenir actos de interferencia ilícita. Capacitación rigurosa y actualizada según las normas de la Policía Federal y la ANAC.', audience: 'Tripulantes, agentes aeroportuarios y personal de seguridad', icon: Shield, delivery: ['En línea', 'Presencial', 'In-Company'], duration: 'Varía según el módulo (de 4 a 40 h)', certification: 'Según RBAC 107 / 108', requirements: 'Verificación de antecedentes penales', syllabus: ['De conformidad con el plan de estudios vigente de la ANAC. Contáctenos para conocer los detalles.'] },
+    { id: 'dgr', title: 'DGR - Mercancías peligrosas', category: 'DGR', description: 'Esencial para operadores que transportan carga. Capacitamos a expedidores y tripulantes para identificar riesgos ocultos y manipular cargas especiales de forma segura.', audience: 'Expedidores, pilotos, tripulantes de cabina, equipos de rampa, entre otros', icon: AlertTriangle, delivery: ['En línea', 'Presencial'], duration: 'Inicial / Recurrente', certification: 'IATA C-BTA / ANAC RBAC 175', requirements: 'Sin requisitos previos específicos', syllabus: ['De conformidad con el plan de estudios vigente de la ANAC. Contáctenos para conocer los detalles.'] },
+    { id: 'safety-culture', title: 'SGSO y cultura de seguridad', category: 'Gestión', description: 'Curso para gestores. Enseña a transformar los datos de los informes en acciones preventivas, protegiendo a la empresa y la vida de los pasajeros.', audience: 'Gestores, responsables de seguridad y directores', icon: Globe, delivery: ['Presencial'], duration: '24 horas', certification: 'Certificado corporativo', requirements: 'Se recomienda experiencia previa en aviación', syllabus: ['De conformidad con el plan de estudios vigente de la ANAC. Contáctenos para conocer los detalles.'] },
+    { id: 'qsms', title: 'Capacitación QSMS (calidad, salud, medioambiente y seguridad)', category: 'Gestión', description: 'Integración de calidad y seguridad. Ideal para empresas que buscan certificaciones ISO o mejorar sus procesos internos de auditoría.', audience: 'Gestores, técnicos de seguridad y equipos de calidad', icon: Factory, delivery: ['Presencial', 'In-Company'], duration: 'Personalizada', certification: 'SGI / Certificación corporativa', requirements: 'Sin requisitos previos específicos', syllabus: ['Contáctenos para conocer el programa del curso adaptado a las necesidades de su empresa.'] },
+  ],
+  about_page: {
+    title: 'Sobre HTC Training', subtitle: 'Tradición y excelencia desde 2004.', introTitle: 'Conozca HTC',
+    introText: 'HTC TRAINING AND BUSINESS está en el mercado desde marzo de 2004. Desde entonces presta servicios a numerosas empresas de aviación civil, petróleo y gas, finanzas, industria alimentaria y salud. HTC reúne a profesionales multidisciplinarios especializados en diversas áreas.',
+    clientsText: 'Atendemos a grandes empresas como BRISTOW Helicopters, CHC Helicopters, HELIBARRA Táxi Aéreo, SAFRAN Helicopters, Petrobras, Equinor, Maersk, White Martins, Transocean, Norskan, Banco do Brasil, Grupo BRF y Hospital Evandro Freire.',
+    clientsList: ['Petrobras', 'Bristow', 'CHC Helicopters', 'Helibarra', 'Safran', 'Equinor', 'Maersk', 'Banco do Brasil', 'White Martins', 'Transocean', 'Norskan', 'Grupo BRF', 'Hosp. Evandro Freire', 'Aeróleo'],
+    clientsTitle: 'Empresas que confían en HTC', expertiseTitle: 'Experiencia multidisciplinaria',
+    expertiseText: 'Contamos con amplia experiencia en gestión empresarial, gestión de contratos, asignación de personal, consultoría, asesoría, auditoría y capacitación especializada (gestión del error humano, amenazas organizacionales, etc.) para elevar el nivel de competencia de nuestros clientes.',
+    sectors: [{ label: 'Aviación civil', icon: Plane }, { label: 'Petróleo y gas', icon: Droplet }, { label: 'Salud', icon: Stethoscope }, { label: 'Industria', icon: Factory }, { label: 'Finanzas', icon: TrendingUp }],
+    casesTitle: 'Resultados comprobados',
+    cases: [
+      { title: 'Logística offshore', desc: 'Gestión del apoyo logístico al transporte aéreo en seis aeropuertos offshore de Petrobras. Aproximadamente 5.000 vuelos y 100.000 pasajeros transportados al mes durante tres años.' },
+      { title: 'Seguridad (SMS)', desc: 'Apoyo a White Martins mediante personal especializado en seguridad laboral (SMS) para sus plantas de producción.' },
+      { title: 'Rendimiento ejecutivo', desc: 'Mejora de la productividad de decenas de ejecutivos de BBSeguros / Banco do Brasil mediante coaching ejecutivo y de equipos.' },
+    ],
+    aviationTitle: 'Liderazgo en aviación civil',
+    aviationText: 'En aviación civil hemos capacitado de forma continua y con éxito a numerosas instituciones públicas y privadas: gestores, pilotos, tripulantes de cabina, mecánicos y personal de apoyo aéreo. Aplicamos la metodología Crew and Corporate Resource Management (CRM) para gestionar los factores humanos, además de ofrecer capacitación en transporte de mercancías peligrosas y supervivencia en selva y mar.',
+    auditText: 'Durante varios años auditamos con éxito el laboratorio químico de fluidos E&P – SERV/ US-AP/LF de Petrobras en Macaé/RJ.',
+    certificationsTitle: 'Certificaciones y alianzas', certificationsList: ['Registro CRC de Petrobras', 'Registro SICAF', 'Alianza internacional (2020) para capacitación especializada (offshore, seguridad y reabastecimiento de helicópteros)'],
+    missionTitle: 'Nuestra misión', missionDesc: 'Ofrecer servicios de capacitación y gestión de alto nivel que permitan a los profesionales operar con seguridad, eficiencia y confianza.',
+    visionTitle: 'Nuestra visión', visionDesc: 'Ser un referente mundial en capacitación y consultoría corporativa, reconocido por la innovación y la integridad.',
+    valuesTitle: 'Nuestros valores', valuesDesc: 'Seguridad ante todo, integridad innegociable, mejora continua y colaboración con el cliente.',
+    cultureTitle: 'Una cultura de seguridad', cultureDesc: 'En HTC, la seguridad no es solo un módulo que enseñamos: es la base de todo lo que hacemos. Ayudamos a las organizaciones a construir culturas de seguridad resilientes.',
+  },
+  corporate_page: {
+    title: 'Soluciones corporativas', subtitle: 'Una alianza estratégica para elevar los estándares de seguridad, reducir los costos operacionales y garantizar el cumplimiento de su empresa.',
+    deliveryTitle: 'Flexibilidad de impartición', deliverySubtitle: 'Adaptamos nuestra logística para no afectar sus turnos.',
+    deliveryMethods: [
+      { title: 'Capacitación en su empresa', desc: 'Nuestros instructores se desplazan a su base operacional. Ideal para grupos grandes y estandarización según los SOP locales.', icon: Map },
+      { title: 'Plataforma virtual / En vivo', desc: 'Clases en directo o grabadas para tripulantes en tránsito. Reduzca los costos de alojamiento y desplazamiento (Must Ride).', icon: Laptop },
+      { title: 'Centro de capacitación HTC', desc: 'Instalaciones propias en Río de Janeiro para sesiones prácticas y talleres ejecutivos.', icon: Building2 },
+    ],
+    cards: [
+      { title: 'Integración de SOP', desc: 'No ofrecemos cursos genéricos. Adaptamos el material (CRM, AVSEC) a los manuales y a la cultura de su empresa.', list: ['• Análisis del MGO/MGSO', '• Casos reales', '• Alineación cultural'] },
+      { title: 'Gestión del cumplimiento', desc: 'Apoyamos a su departamento de capacitación en el control de vencimientos y la matriz de cualificaciones.', list: ['• Preparación para auditorías ANAC', '• Informes de asistencia', '• Certificación rápida'] },
+      { title: 'Consultoría estratégica', desc: 'Además de la capacitación, ofrecemos diagnósticos de seguridad y auditorías de calidad.', list: ['• Auditorías de proveedores', '• Ingeniería de manuales', '• Evaluación de riesgos'] },
+    ],
+    processTitle: 'Cómo trabajamos', processSubtitle: 'Un enfoque consultivo para garantizar el retorno de la inversión en capacitación.',
+    process: [
+      { title: 'Diagnóstico', desc: 'Entendemos sus desafíos: multas, incidentes o requisitos de auditoría.', icon: ClipboardCheck },
+      { title: 'Personalización', desc: 'Integramos sus procedimientos y casos en el material didáctico.', icon: PenTool },
+      { title: 'Ejecución flexible', desc: 'Clases en su base o en línea, según la disponibilidad de los turnos.', icon: Rocket },
+      { title: 'Informe final', desc: 'Evaluación detallada del rendimiento y los aspectos que requieren atención en el equipo.', icon: BarChart3 },
+    ],
+    benefitsTitle: 'Ventajas de la alianza corporativa',
+    benefits: [
+      { title: 'Reducción de responsabilidades', desc: 'Los instructores homologados garantizan la validez jurídica y técnica de los certificados.' },
+      { title: 'Enfoque en su actividad principal', desc: 'Déjenos la gestión del programa y concéntrese en la operación aérea.' },
+      { title: 'Economías de escala', desc: 'Precios competitivos para contratos anuales y grandes cantidades de alumnos.' },
+      { title: 'Estandarización', desc: 'Garantice que todos los colaboradores reciban la misma calidad de formación.' },
+    ],
+    partnerTitle: '¿Optimizamos su capacitación?', partnerDesc: 'Agende una reunión con nuestros consultores corporativos y descubra cómo reducir sus costos de capacitación manteniendo la excelencia.',
+  },
+  contact_page: {
+    title: 'Contáctenos', subtitle: 'Canales exclusivos para atención corporativa e individual.', touchTitle: 'Póngase en contacto',
+    touchDesc: 'Ya sea para certificar a un piloto o contratar la capacitación de toda su empresa aérea, estamos listos para ayudarle.',
+    headquarters: 'Sede administrativa', phone: 'Teléfono / WhatsApp', email: 'Correo electrónico', hours: 'Lun.–vie., 09:00–18:00', formTitle: 'Envíe un mensaje',
+    labels: { name: 'Nombre del responsable', email: 'Correo corporativo', phone: 'Teléfono', company: 'Empresa', topic: 'Asunto', message: 'Mensaje', topics: ['Presupuesto corporativo (B2B)', 'Consulta sobre un curso', 'Alianza comercial', 'Consultoría', 'Otros'] },
+    placeholders: { name: 'Juan García', email: 'juan@empresa.com', phone: '+55 (21) 99999-9999', company: 'Nombre de la empresa o aeropuerto', message: '¿Cómo podemos ayudarle?' },
+    alert: 'Gracias. Recibimos su solicitud sobre', faqTitle: 'Preguntas frecuentes',
+    faqs: [
+      { q: '¿HTC ofrece capacitación en las instalaciones de la empresa?', a: 'Sí. Nuestros instructores se desplazan a su base operacional en cualquier lugar de Brasil o del extranjero, reduciendo los costos de desplazamiento de su tripulación.' },
+      { q: '¿Los cursos se pueden adaptar a los SOP de mi empresa?', a: 'Por supuesto. Para los contratos corporativos solicitamos sus manuales (MGO/MGSO) para adaptar el contenido a su realidad operacional y aumentar la eficacia de la capacitación.' },
+      { q: '¿La documentación está preparada para auditorías ANAC/IOSA?', a: 'Sí. Todo nuestro material didáctico y los registros de capacitación se mantienen de conformidad con los RBAC vigentes, listos para la inspección de los auditores.' },
+      { q: '¿Ofrecen facturación para empresas?', a: 'Sí. Emitimos facturas para personas jurídicas, con plazos negociables sujetos a la aprobación del registro de la empresa.' },
+      { q: '¿Cuál es su capacidad de atención simultánea?', a: 'Contamos con un amplio equipo de instructores para atender a varios grupos simultáneamente, de forma presencial o mediante nuestra plataforma LMS.' },
+    ],
+  },
+  footer: {
+    desc: 'Proveedor líder de capacitación corporativa y consultoría en aviación. Nos centramos en reducir riesgos y garantizar el cumplimiento reglamentario de su empresa.',
+    quickLinks: 'Enlaces rápidos', corePrograms: 'Programas corporativos', contactUs: 'Contacto', rights: 'Todos los derechos reservados.',
+    privacy: 'Política de privacidad', terms: 'Términos del servicio', location: 'Río de Janeiro, Brasil\nAtendemos a clientes internacionales',
+  },
+  instructors_page: {
+    title: 'Nuestro equipo de instructores', subtitle: 'Aprenda con destacados profesionales del sector, con décadas de experiencia práctica y académica.',
+    list: [{
+      name: 'Irio Vaz', role: 'Director administrativo de HTC', avatar: '/images/irio-vaz.png', email: 'irio.vayz@htc-brasil.com.br',
+      qualifications: [
+        'Gestor de negocios', 'Gestor de aerolíneas, aeropuertos, logística y transporte', 'Registro CFA/ CRA-RJ 03-01396',
+        'SMS/Gestor de seguridad operacional /GSO ANAC', 'AVSEC/ Operador aéreo de seguridad y gestor aeroportuario /ANAC',
+        'Miembro SAR-005 DECEA', 'Especialista en emergencias generales y seguridad de cabina', 'Especialista en factores humanos',
+        'Especialista en Corporate Resource Management / CRM /ANAC', 'Instructor CRM-LOS', 'Especialista en gestión de personas',
+        'Analista conductual DISC', 'Profesor universitario de MBA', 'Máster en Dirección de Recursos Humanos /IESLA/UCES',
+        'Coach de Crew Endurance Management System / USCG/EE. UU.', 'Miembro del IHST - International Helicopter Safety Team',
+        'SGC ABNT NBR ISO 9001: 2015/3334/13135-1', 'Auditor ABNT NBR ISO 19001',
+      ],
+    }],
+  },
+  privacy_page: {
+    title: 'Política de privacidad', subtitle: 'Última actualización: enero de 2026',
+    sections: [
+      { heading: 'Introducción', content: 'HTC Training and Business valora su privacidad. Esta política describe cómo recopilamos, utilizamos y protegemos su información personal al utilizar nuestros servicios de capacitación y consultoría en aviación.' },
+      { heading: 'Recopilación de información', content: 'Recopilamos la información que nos proporciona directamente, como nombre, correo electrónico, teléfono y empresa, al solicitar propuestas, inscribirse en cursos o ponerse en contacto con nosotros. Para la certificación (ANAC), podemos solicitar datos adicionales según lo exija la normativa. Utilizamos una cookie de preferencias para recordar el idioma seleccionado.' },
+      { heading: 'Uso de la información', content: 'Utilizamos sus datos para impartir y administrar la capacitación, emitir certificados de conformidad con las normas reglamentarias, responder consultas y mejorar nuestros servicios. No vendemos su información a terceros.' },
+      { heading: 'Seguridad de los datos', content: 'Aplicamos medidas de seguridad técnicas y organizativas adecuadas para proteger sus datos contra el acceso no autorizado, la alteración o la destrucción, siguiendo las mejores prácticas del sector.' },
+      { heading: 'Sus derechos', content: 'Tiene derecho a acceder a sus datos personales, corregirlos o solicitar su eliminación, salvo cuando su conservación sea exigida por la ley o la normativa aeronáutica, como en el caso de los registros obligatorios de capacitación.' },
+      { heading: 'Contacto', content: 'Si tiene preguntas sobre esta política, póngase en contacto con nosotros por correo electrónico: training@htc-brasil.com.br' },
+    ],
+  },
+  terms_page: {
+    title: 'Términos del servicio', subtitle: 'Última actualización: enero de 2026',
+    sections: [
+      { heading: '1. Aceptación de los términos', content: 'Al acceder y utilizar el sitio web y los servicios de HTC Training and Business, acepta cumplir y quedar sujeto a los siguientes términos y condiciones de uso. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar nuestros servicios.' },
+      { heading: '2. Servicios ofrecidos', content: 'HTC ofrece cursos de capacitación en aviación (CRM, AVSEC, DGR, etc.) y servicios de consultoría. Nos reservamos el derecho de modificar, suspender o interrumpir cualquier aspecto de nuestros servicios en cualquier momento.' },
+      { heading: '3. Propiedad intelectual', content: 'Todo el contenido, material de capacitación, logotipos, textos y gráficos de este sitio web y de nuestros cursos son propiedad exclusiva de HTC Training and Business o de sus licenciantes, y están protegidos por las leyes de derechos de autor y propiedad intelectual.' },
+      { heading: '4. Inscripciones y pagos', content: 'La inscripción en los cursos está sujeta a la disponibilidad de plazas. Los pagos deben realizarse según las condiciones estipuladas en el momento de la inscripción. Se aplican políticas específicas de cancelación y reembolso a cada modalidad de curso.' },
+      { heading: '5. Limitación de responsabilidad', content: 'Aunque nos esforzamos por proporcionar información precisa y actualizada en nuestras capacitaciones, HTC no se responsabiliza de los daños directos, indirectos o derivados del uso o de la imposibilidad de utilizar nuestros servicios o materiales.' },
+      { heading: '6. Legislación aplicable', content: 'Estos términos se rigen e interpretan de acuerdo con las leyes de la República Federativa de Brasil. Cualquier controversia derivada de estos términos se someterá a la jurisdicción exclusiva de los tribunales de la ciudad de São Paulo, SP.' },
+    ],
+  },
+};

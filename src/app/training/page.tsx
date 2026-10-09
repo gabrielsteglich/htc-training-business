@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { localizedMetadata } from "@/lib/server-language";
 import { TrainingClient } from "./TrainingClient";
 
-export const metadata: Metadata = {
-    title: "Treinamentos",
-    description:
-        "Cursos de CRM, AVSEC e DGR com certificação ANAC, IATA e ICAO. Treinamento presencial e online.",
-};
+export const generateMetadata = () => localizedMetadata('/training');
 
 export default function TrainingPage() {
     return <TrainingClient />;

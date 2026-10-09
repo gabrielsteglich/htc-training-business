@@ -10,7 +10,7 @@ import { ButtonLink } from '@/components/ButtonLink';
 import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 export function ServicesClient() {
-  const { language } = useLanguage();
+  const { language, ui } = useLanguage();
   const t = CONTENT[language];
   const { services_page } = t;
 
@@ -34,7 +34,7 @@ export function ServicesClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/header-services.png"
-            alt="Sky texture"
+            alt={ui.images.sky}
             fill
             sizes="100vw"
             className="object-cover opacity-30"
@@ -45,7 +45,7 @@ export function ServicesClient() {
 
         <div className="max-w-4xl mx-auto px-4 relative z-10 animate-fade-in-up">
           <div className="inline-block px-4 pt-0.5 pb-1.5 mb-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{language === 'pt' ? 'Portfólio Completo' : 'Full Portfolio'}</span>
+            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{ui.portfolio}</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{services_page.title}</h1>
           <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-md font-light leading-relaxed">
@@ -134,7 +134,7 @@ export function ServicesClient() {
             fill
             sizes="100vw"
             className="object-cover"
-            alt="Hangar"
+            alt={ui.images.hangar}
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/50"></div>

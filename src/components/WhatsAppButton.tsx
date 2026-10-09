@@ -6,7 +6,7 @@ import { CONTENT } from "@/constants";
 import { useLanguage } from "@/context/LanguageContext";
 
 export const WhatsAppButton: React.FC = () => {
-    const { language } = useLanguage();
+    const { language, ui } = useLanguage();
     const t = CONTENT[language];
 
     return (
@@ -15,7 +15,7 @@ export const WhatsAppButton: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-lg hover:bg-[#20bd5a] transition-all duration-300 hover:scale-105 group"
-            aria-label={language === "pt" ? "Entrar em contato pelo WhatsApp" : "Contact us on WhatsApp"}
+            aria-label={ui.whatsapp}
         >
             <MessageCircle className="w-6 h-6 fill-current" aria-hidden="true" />
             <span className="font-bold hidden group-hover:inline-block transition-all duration-300">

@@ -9,7 +9,7 @@ import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 import { ContactRequestError, sendContact } from '@/lib/contact-client';
 export function DGRLandingClient() {
-   const { language } = useLanguage();
+   const { language, ui } = useLanguage();
    const t = CONTENT[language];
    const lp = t.dgr_lp;
    const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,10 +48,10 @@ export function DGRLandingClient() {
             source: 'Landing page DGR',
             audienceSize: formData.studentCount,
             website: formData.website,
-         });
+         }, language);
          setFormStatus({
             type: 'success',
-            message: language === 'pt' ? 'Solicitação enviada com sucesso!' : 'Request sent successfully!',
+            message: ui.requestSent,
          });
          setFormData({
             name: '',
@@ -67,7 +67,7 @@ export function DGRLandingClient() {
             type: 'error',
             message: error instanceof ContactRequestError
                ? error.message
-               : (language === 'pt' ? 'Não foi possível enviar. Tente novamente.' : 'Unable to send. Please try again.'),
+               : ui.sendError,
          });
       } finally {
          setIsSubmitting(false);
@@ -83,7 +83,7 @@ export function DGRLandingClient() {
             <div className="absolute inset-0 z-0">
                <Image
                   src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2400&auto=format&fit=crop"
-                  alt="Cargo Logistics"
+                  alt={ui.images.cargo}
                   fill
                   sizes="100vw"
                   priority
@@ -116,7 +116,7 @@ export function DGRLandingClient() {
                      <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-300">
                         <div className="flex items-center gap-2">
                            <Award className="w-5 h-5 text-yellow-400" />
-                           <span>IATA Accredited</span>
+                           <span>{ui.iata}</span>
                         </div>
                         <div className="flex items-center gap-2">
                            <FileText className="w-5 h-5 text-yellow-400" />
@@ -206,7 +206,7 @@ export function DGRLandingClient() {
                               {isSubmitting ? (
                                  <>
                                     <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
-                                    <span className="sr-only">{language === 'pt' ? 'Enviando' : 'Sending'}</span>
+                                    <span className="sr-only">{ui.sending}</span>
                                  </>
                               ) : t.buttons.quoteNow}
                            </Button>
@@ -250,7 +250,7 @@ export function DGRLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <Award className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'IATA Credenciado' : 'IATA Authorized'}</span>
+                  <Award className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.iata}</span>
                </motion.div>
                <motion.div
                   className="flex items-center gap-2"
@@ -259,7 +259,7 @@ export function DGRLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <ShieldCheck className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'ANAC Homologado' : 'ANAC Approved'}</span>
+                  <ShieldCheck className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.anac}</span>
                </motion.div>
                <motion.div
                   className="flex items-center gap-2"
@@ -268,7 +268,7 @@ export function DGRLandingClient() {
                      visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
                   }}
                >
-                  <Globe className="w-6 h-6" /> <span className="font-bold text-slate-700">{language === 'pt' ? 'Validade Internacional' : 'International Valid'}</span>
+                  <Globe className="w-6 h-6" /> <span className="font-bold text-slate-700">{ui.international}</span>
                </motion.div>
             </motion.div>
          </div>
@@ -329,7 +329,7 @@ export function DGRLandingClient() {
                            </div>
                            <div>
                               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                                 {language === 'pt' ? 'Credenciado' : 'Accredited'}
+                                 {ui.accredited}
                               </p>
                               <p className="text-sm font-bold text-aviation-navy leading-tight">
                                  IATA Cat. 6
@@ -423,7 +423,7 @@ export function DGRLandingClient() {
                         <div className="bg-yellow-500 text-white p-2 rounded">
                            <Package className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-aviation-navy">DGR Inicial</h3>
+                        <h3 className="text-xl font-bold text-aviation-navy">DGR {ui.initial}</h3>
                      </div>
                      <ul className="space-y-3">
                         {lp.syllabus.initial.map((topic, i) => (
@@ -447,7 +447,7 @@ export function DGRLandingClient() {
                         <div className="bg-aviation-navy text-white p-2 rounded">
                            <Clock className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-aviation-navy">DGR Recorrente</h3>
+                        <h3 className="text-xl font-bold text-aviation-navy">DGR {ui.recurrent}</h3>
                      </div>
                      <ul className="space-y-3">
                         {lp.syllabus.recurrent.map((topic, i) => (

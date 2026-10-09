@@ -9,7 +9,7 @@ import { CONTENT } from '@/constants';
 import { useLanguage } from '@/context/LanguageContext';
 import { ContactRequestError, sendContact } from '@/lib/contact-client';
 export function ContactClient() {
-  const { language } = useLanguage();
+  const { language, ui } = useLanguage();
   const t = CONTENT[language];
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,10 +46,10 @@ export function ContactClient() {
     setFormStatus(null);
 
     try {
-      await sendContact({ ...formData, source: 'Página de contato' });
+      await sendContact({ ...formData, source: 'Página de contato' }, language);
       setFormStatus({
         type: 'success',
-        message: language === 'pt' ? 'Mensagem enviada com sucesso!' : 'Message sent successfully!',
+        message: ui.messageSent,
       });
       setFormData({
         name: '',
@@ -61,9 +61,7 @@ export function ContactClient() {
         website: '',
       });
     } catch (error) {
-      const fallback = language === 'pt'
-        ? 'Não foi possível enviar a mensagem. Tente novamente.'
-        : 'The message could not be sent. Please try again.';
+      const fallback = ui.sendError;
       setFormStatus({
         type: 'error',
         message: error instanceof ContactRequestError ? error.message : fallback,
@@ -81,7 +79,7 @@ export function ContactClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/header-contact.png"
-            alt="Sky texture"
+            alt={ui.images.sky}
             fill
             sizes="100vw"
             className="object-cover opacity-30"
@@ -92,7 +90,7 @@ export function ContactClient() {
 
         <div className="max-w-4xl mx-auto px-4 relative z-10 animate-fade-in-up">
           <div className="inline-block px-4 pt-0.5 pb-1.5 mb-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{language === 'pt' ? 'Atendimento 24/7' : '24/7 Support'}</span>
+            <span className="text-aviation-red font-bold text-xs tracking-widest uppercase">{ui.support}</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg tracking-tight">{t.contact_page.title}</h1>
           <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-md font-light leading-relaxed">{t.contact_page.subtitle}</p>
@@ -125,7 +123,7 @@ export function ContactClient() {
               <div className="relative h-48 w-full rounded-xl overflow-hidden mb-10 shadow-lg border border-white/10 group">
                 <Image
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2400&auto=format&fit=crop"
-                  alt="HTC Headquarters"
+                  alt={ui.images.headquarters}
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover transform group-hover:scale-105 transition-transform duration-700"
@@ -134,7 +132,7 @@ export function ContactClient() {
                 <div className="absolute bottom-4 left-4">
                   <span className="text-white text-sm font-bold flex items-center gap-2 uppercase tracking-wider">
                     <Building2 className="w-4 h-4 text-aviation-red" />
-                    {language === 'pt' ? 'Sede Operacional' : 'Headquarters'}
+                    {ui.headquarters}
                   </span>
                 </div>
               </div>
@@ -306,7 +304,7 @@ export function ContactClient() {
                 >
                   {isSubmitting ? (
                     <>
-                      {language === 'pt' ? 'Processando...' : 'Processing...'}
+                      {ui.processing}
                       <Loader2 className="ml-2 w-5 h-5 animate-spin" />
                     </>
                   ) : (

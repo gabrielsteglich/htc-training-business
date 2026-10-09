@@ -7,7 +7,7 @@ import { CONTENT } from "@/constants";
 import { useLanguage } from "@/context/LanguageContext";
 
 export const Footer: React.FC = () => {
-    const { language } = useLanguage();
+    const { language, ui } = useLanguage();
     const t = CONTENT[language];
 
     return (
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
                                 href="https://www.linkedin.com/company/htc-training-consulting"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="HTC Training and Business no LinkedIn"
+                                aria-label={ui.linkedin}
                                 className="text-slate-400 hover:text-white transition-colors"
                             >
                                 <Linkedin size={20} aria-hidden="true" />
@@ -62,10 +62,10 @@ export const Footer: React.FC = () => {
                             <div className="h-px w-12 bg-slate-700 mt-2"></div>
                         </div>
                         <ul className="space-y-3">
-                            <li className="text-slate-400 text-sm">CRM - Corporate</li>
-                            <li className="text-slate-400 text-sm">AVSEC - Segurança</li>
+                            <li className="text-slate-400 text-sm">{ui.crmCorporate}</li>
+                            <li className="text-slate-400 text-sm">{ui.avsec}</li>
                             <li className="text-slate-400 text-sm">DGR - IATA/ICAO</li>
-                            <li className="text-slate-400 text-sm">SGSO - Safety</li>
+                            <li className="text-slate-400 text-sm">{ui.safety}</li>
                         </ul>
                     </div>
 
