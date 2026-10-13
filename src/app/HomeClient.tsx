@@ -18,7 +18,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1478860409698-8707f313ee8b?q=80&w=2400&auto=format&fit=crop",
+  "/images/hero-aviation-training-v5.png",
   "/images/crm_slider_bg.jpg",
   "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=2400&auto=format&fit=crop",
   "/images/dgr_slider_bg.png",
@@ -144,7 +144,7 @@ export function HomeClient() {
               fill
               sizes="100vw"
               priority={index === 0}
-              className={`object-cover transform transition-transform duration-[8000ms] ease-out ${currentSlide === index ? 'scale-105' : 'scale-100'
+              className={`object-cover ${index === 0 ? 'object-[72%_center] sm:object-center' : ''} transform transition-transform duration-[8000ms] ease-out ${currentSlide === index ? 'scale-105' : 'scale-100'
                 }`}
             />
             {/* Improved Gradient for text readability */}
